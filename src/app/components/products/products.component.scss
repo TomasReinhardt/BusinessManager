@@ -1,0 +1,101 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-size: 25px;
+}
+.Products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .search {
+        width: 100%;
+        text-align: center;
+        margin: 20px 0px;
+        input {
+            width: 80%;
+            height: 50px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            text-align: center;
+        }
+    }
+    .productsList {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 110px;
+        .productCard {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+            width: 80%;
+            border-radius: 5px;
+            text-align: center;
+            margin: 10px 0px;
+            background-color: rgb(122, 118, 118);
+            .product, .cant, .buttons {
+                width: 100%;
+                margin: 5px 0px;
+            }
+            .product {
+                padding: 0px 10px;
+            }
+            .cant {
+                input {
+                    width: 50%;
+                    height: 30px;
+                    text-align: center;
+                    border-radius: 20px;
+                    border: none;
+                }
+                input[type=number]::-webkit-inner-spin-button, 
+                input[type=number]::-webkit-outer-spin-button { 
+                -webkit-appearance: none; 
+                margin: 0; 
+                }
+
+                input[type=number] { -moz-appearance:textfield; }
+            }
+            .buttons {
+                text-align: center;
+                button {
+                    height: 36px;
+                    width: 36px;
+                    margin: 0px 20px;
+                    cursor: pointer;
+                    background: transparent;
+                    border: none;
+                }
+            }
+        }
+        .noStock {
+            color: black;
+            background-color: rgb(160, 97, 97);
+        }
+    }
+    .sale {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        button{
+            display: block;
+            width: 80%;
+            margin: 20px 0px;
+        }
+        button {
+            position: fixed;
+            cursor: pointer;
+            padding: 30px 30px;
+            font-size: 25px;
+            bottom: 0px;
+            background-color: lightgreen;
+            border: none;
+            border-radius: 20px;
+        }
+
+    }
+    
+}

@@ -1,0 +1,95 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-size: 25px;
+}
+
+.Sale .ticket {
+  background-color: #7a7676;
+  border-radius: 20px;
+  padding: 5px 10px;
+}
+
+.Sale .ticket h3 {
+  text-align: center;
+}
+
+.Sale .ticket .auxDiv {
+  border: 2px dashed black;
+}
+
+.Sale .ticket .products {
+  margin: 20px 0px;
+}
+
+.Sale .ticket .products .productAux {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 30px;
+  margin-bottom: 10px;
+}
+
+.Sale .ticket .products .productAux span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Sale .ticket .products .productAux span button {
+  height: 24px;
+  width: 24px;
+  margin-left: 5px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+.Sale .ticket .total {
+  margin: 20px 0px;
+  text-align: center;
+}
+
+.Sale .end {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.Sale .end button {
+  display: block;
+  width: 80%;
+  margin: 20px 0px;
+}
+
+.Sale .end button {
+  position: fixed;
+  cursor: pointer;
+  padding: 30px 30px;
+  font-size: 25px;
+  bottom: 0px;
+  background-color: lightgreen;
+  border: none;
+  border-radius: 20px;
+}
+
+.Sale .end .volver {
+  bottom: 110px;
+  background-color: lightcoral;
+}
+/*# sourceMappingURL=sale.component.css.map */

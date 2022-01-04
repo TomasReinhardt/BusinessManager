@@ -1,0 +1,137 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-size: 25px;
+}
+
+.Products {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.Products .search {
+  width: 100%;
+  text-align: center;
+  margin: 20px 0px;
+}
+
+.Products .search input {
+  width: 80%;
+  height: 50px;
+  border: 2px solid #333;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.Products .productsList {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 110px;
+}
+
+.Products .productsList .productCard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80%;
+  border-radius: 5px;
+  text-align: center;
+  margin: 10px 0px;
+  background-color: #7a7676;
+}
+
+.Products .productsList .productCard .product, .Products .productsList .productCard .cant, .Products .productsList .productCard .buttons {
+  width: 100%;
+  margin: 5px 0px;
+}
+
+.Products .productsList .productCard .product {
+  padding: 0px 10px;
+}
+
+.Products .productsList .productCard .cant input {
+  width: 50%;
+  height: 30px;
+  text-align: center;
+  border-radius: 20px;
+  border: none;
+}
+
+.Products .productsList .productCard .cant input[type=number]::-webkit-inner-spin-button,
+.Products .productsList .productCard .cant input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.Products .productsList .productCard .cant input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.Products .productsList .productCard .buttons {
+  text-align: center;
+}
+
+.Products .productsList .productCard .buttons button {
+  height: 36px;
+  width: 36px;
+  margin: 0px 20px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+.Products .productsList .noStock {
+  color: black;
+  background-color: #a06161;
+}
+
+.Products .sale {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.Products .sale button {
+  display: block;
+  width: 80%;
+  margin: 20px 0px;
+}
+
+.Products .sale button {
+  position: fixed;
+  cursor: pointer;
+  padding: 30px 30px;
+  font-size: 25px;
+  bottom: 0px;
+  background-color: lightgreen;
+  border: none;
+  border-radius: 20px;
+}
+/*# sourceMappingURL=products.component.css.map */

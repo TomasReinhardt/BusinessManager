@@ -1,26 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ProductService } from 'src/app/services/products';
 
 @Component({
   selector: 'sale',
   templateUrl: './sale.component.html',
-  styleUrls: ['./sale.component.css']
+  styleUrls: ['./sale.component.css'],
+  providers: [ProductService]
 })
 export class SaleComponent implements OnInit {
   public total: number = 0;
   public Trolley: any[]  = []
 
   constructor(
-    public _router: Router,
+    private _router: Router,
+    private _ProductService: ProductService 
   ) { }
 
   ngOnInit(): void {
     var aux = sessionStorage.getItem('trolley');
     if(aux){
       this.Trolley = JSON.parse(aux);
+      this.calcTotal();
     }
-    this.calcTotal();
   }
+
+  
 
   calcTotal() {
     this.total = 0;

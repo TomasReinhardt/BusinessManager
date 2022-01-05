@@ -4,10 +4,25 @@
   font-size: 25px;
 }
 
+.Sale {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
 .Sale .ticket {
+  margin-top: 20px;
+  width: 90%;
   background-color: #7a7676;
   border-radius: 20px;
   padding: 5px 10px;
+  margin-bottom: 240px;
 }
 
 .Sale .ticket h3 {
@@ -54,6 +69,10 @@
   border: none;
 }
 
+.Sale .ticket .products .productAux span button svg {
+  display: block;
+}
+
 .Sale .ticket .total {
   margin: 20px 0px;
   text-align: center;
@@ -73,7 +92,7 @@
 
 .Sale .end button {
   display: block;
-  width: 80%;
+  width: 90%;
   margin: 20px 0px;
 }
 

@@ -1,33 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
+import { ProductService } from 'src/app/services/products';
 
 @Component({
   selector: 'products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  styleUrls: ['./products.component.css'],
+  providers: [ProductService]
 })
 export class ProductsComponent implements OnInit {
   public total: number = 0;
   public Trolley: any[]  = []
+  public Categorys: any[]  = ["Todos"]
   public nameSearch = "";
+  public nameCategory = "";
 
-  public Products: Product[]  = [
-    {name: "Alfajor", price: 20, stock: true, cant:1},
-    {name: "Caramelo masticable", price: 5, stock: true, cant:1},
-    {name: "Gomitas", price: 5, stock: false, cant:1},
-    {name: "Yogurt", price: 300, stock: true, cant:1},
-    {name: "Hamburguesa", price: 180, stock: true, cant:1},
-    {name: "Asado", price: 1000, stock: true, cant:1},
-    {name: "Mogul", price: 10, stock: true, cant:1},
-    {name: "Coca-Cola", price: 400, stock: false, cant:1},
-    {name: "Prity", price: 50, stock: true, cant:1},
-    {name: "Coca-Cola", price: 400, stock: false, cant:1},
-    {name: "Prity", price: 50, stock: true, cant:1}
-  ]
+  public Products: Product[]  = []
 
   constructor(
     public _router: Router,
+    private _ProductService: ProductService 
   ) { }
 
   ngOnInit(): void {
@@ -35,6 +28,29 @@ export class ProductsComponent implements OnInit {
     if(aux){
       this.Trolley = JSON.parse(aux);
       this.calcTotal();
+    }
+    this.getProducts();
+  }
+
+  getProducts() {
+    this._ProductService.getProducts().subscribe(
+      response => {
+        this.Products = response.product;
+        this.getCategorys();
+      },
+      err => {
+        console.log("-------------------------");
+        console.log(err);
+        console.log("-------------------------");
+      }
+    )
+  }
+
+  getCategorys() {
+    for (let i = 0; i < this.Products.length; i++) {
+      if(this.Categorys.findIndex(category => category == this.Products[i].category) == -1){
+        this.Categorys.push(this.Products[i].category);
+      }
     }
   }
 
@@ -44,6 +60,14 @@ export class ProductsComponent implements OnInit {
       for (let i = 0; i < this.Trolley.length; i++) {
         this.total += this.Trolley[i].product.price * this.Trolley[i].cant
       }
+    }
+  }
+
+  filterCategory(category:string) {
+    if(category == "Todos"){
+      this.nameCategory = "";
+    }else {
+      this.nameCategory = category;
     }
   }
 

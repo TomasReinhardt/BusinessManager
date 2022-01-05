@@ -4,10 +4,19 @@
     font-size: 25px;
 }
 .Sale {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+
     .ticket {
+        margin-top: 20px;
+        width: 90%;
         background-color: rgb(122, 118, 118);
         border-radius: 20px;
         padding: 5px 10px;
+        margin-bottom: 240px;
+
         h3 {
             text-align: center;
         }
@@ -32,6 +41,9 @@
                         cursor: pointer;
                         background: transparent;
                         border: none;
+                        svg {
+                            display: block;
+                        }
                     }
                 }
             }
@@ -48,7 +60,7 @@
         width: 100%;
         button {
             display: block;
-            width: 80%;
+            width: 90%;
             margin: 20px 0px;
         }
         button {

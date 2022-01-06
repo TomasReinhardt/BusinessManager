@@ -1,9 +1,3 @@
-* {
-  margin: 0px;
-  padding: 0px;
-  font-size: 25px;
-}
-
 .Products {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -13,12 +7,13 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-top: 60px;
 }
 
 .Products .search {
   width: 100%;
   text-align: center;
-  margin: 20px 0px;
+  margin: 10px 0px;
 }
 
 .Products .search input {
@@ -34,6 +29,7 @@
   padding: 10px;
   text-align: center;
   background-color: transparent !important;
+  margin-bottom: 10px;
 }
 
 .Products .navbar .navbar-toggler {
@@ -99,7 +95,7 @@
   background-color: #7a7676;
 }
 
-.Products .productsList .productCard .product, .Products .productsList .productCard .cant, .Products .productsList .productCard .buttons {
+.Products .productsList .productCard .product, .Products .productsList .productCard .buttons {
   width: 100%;
   margin: 5px 0px;
 }
@@ -108,31 +104,21 @@
   padding: 0px 10px;
 }
 
-.Products .productsList .productCard .cant input {
-  width: 50%;
-  height: 30px;
-  text-align: center;
-  border-radius: 20px;
-  border: none;
-}
-
-.Products .productsList .productCard .cant input[type=number]::-webkit-inner-spin-button,
-.Products .productsList .productCard .cant input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.Products .productsList .productCard .cant input[type=number] {
-  -moz-appearance: textfield;
-}
-
 .Products .productsList .productCard .buttons {
-  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .Products .productsList .productCard .buttons button {
-  height: 36px;
-  width: 36px;
+  height: 40px;
+  width: 40px;
   margin: 0px 20px;
   cursor: pointer;
   background: transparent;
@@ -141,6 +127,24 @@
 
 .Products .productsList .productCard .buttons button svg {
   display: block;
+}
+
+.Products .productsList .productCard .buttons input {
+  width: 50%;
+  height: 30px;
+  text-align: center;
+  border-radius: 20px;
+  border: none;
+}
+
+.Products .productsList .productCard .buttons input[type=number]::-webkit-inner-spin-button,
+.Products .productsList .productCard .buttons input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.Products .productsList .productCard .buttons input[type=number] {
+  -moz-appearance: textfield;
 }
 
 .Products .productsList .noStock {

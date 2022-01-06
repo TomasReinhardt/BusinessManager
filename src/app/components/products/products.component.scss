@@ -1,16 +1,12 @@
-* {
-    margin: 0px;
-    padding: 0px;
-    font-size: 25px;
-}
 .Products {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 60px;
     .search {
         width: 100%;
         text-align: center;
-        margin: 20px 0px;
+        margin: 10px 0px;
         input {
             width: 80%;
             height: 50px;
@@ -24,6 +20,7 @@
         padding: 10px;
         text-align: center;
         background-color: transparent !important;
+        margin-bottom: 10px;
         .navbar-toggler {
             width: 100%;
             border: none;
@@ -67,14 +64,28 @@
             text-align: center;
             margin: 10px 0px;
             background-color: rgb(122, 118, 118);
-            .product, .cant, .buttons {
+            .product,.buttons {
                 width: 100%;
                 margin: 5px 0px;
             }
             .product {
                 padding: 0px 10px;
             }
-            .cant {
+            .buttons {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                button {
+                    height: 40px;
+                    width: 40px;
+                    margin: 0px 20px;
+                    cursor: pointer;
+                    background: transparent;
+                    border: none;
+                    svg {
+                        display: block;
+                    }
+                }
                 input {
                     width: 50%;
                     height: 30px;
@@ -89,20 +100,6 @@
                 }
 
                 input[type=number] { -moz-appearance:textfield; }
-            }
-            .buttons {
-                text-align: center;
-                button {
-                    height: 36px;
-                    width: 36px;
-                    margin: 0px 20px;
-                    cursor: pointer;
-                    background: transparent;
-                    border: none;
-                    svg {
-                        display: block;
-                    }
-                }
             }
         }
         .noStock {

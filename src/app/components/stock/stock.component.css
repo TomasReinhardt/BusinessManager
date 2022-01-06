@@ -1,0 +1,76 @@
+.Stock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 50px;
+}
+
+.Stock .search {
+  width: 100%;
+  text-align: center;
+  margin: 20px 0px;
+}
+
+.Stock .search input {
+  width: 80%;
+  height: 50px;
+  border: 2px solid #333;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.Stock .listStock {
+  width: 80%;
+  padding: 0px 20px;
+  border-radius: 10px;
+  background-color: #7a7676;
+}
+
+.Stock .listStock div {
+  margin: 15px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.Stock .listStock div #stockDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Stock .listStock div #stockDiv input[type="checkbox"] {
+  display: none;
+}
+
+.Stock .listStock div #stockDiv svg {
+  border: 2px solid black;
+  background-color: black;
+  border-radius: 100%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.Stock .listStock div #stockDiv .noStock {
+  color: #a06161 !important;
+}
+
+.Stock .listStock div #stockDiv .siStock {
+  color: #61a069;
+}
+/*# sourceMappingURL=stock.component.css.map */

@@ -2,7 +2,7 @@
     <div class="ticket">
         <div class="products">
             <span class="productAux" *ngFor="let product of Trolley; let i=index">
-                <span>{{product.product.name}}</span>
+                <span><b>{{product.cant}}</b>-- {{product.product.name}}</span>
                 <span>
                     ${{product.product.price}}
                     <button (click)="removedTrolley(i)">

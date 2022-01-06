@@ -7,7 +7,6 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ProductsComponent } from './components/products/products.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
-import { AddCategoryComponent } from './components/add-category/add-category.component';
 import { StockComponent } from './components/stock/stock.component';
 import { LoginComponent } from './components/login/login.component';
 import { FiadoComponent } from './components/fiado/fiado.component';
@@ -19,7 +18,6 @@ import { SaleComponent } from './components/sale/sale.component';
     AppComponent,
     ProductsComponent,
     AddProductComponent,
-    AddCategoryComponent,
     StockComponent,
     LoginComponent,
     FiadoComponent,

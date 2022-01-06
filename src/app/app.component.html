@@ -1,1 +1,16 @@
+<nav id="menuG">
+    <a id="buttonMenu" (click)="extendMenu()">Menu</a>
+
+    <div class="menuExtend">
+        <ul>
+            <li><a (click)="extendMenu()" [routerLink]="['/']">Productos</a></li>
+            <li><a (click)="extendMenu()" [routerLink]="['/sales']">Ventas</a></li>
+            <li><a (click)="extendMenu()" [routerLink]="['/stock']">Stock</a></li>
+            <li><a (click)="extendMenu()" [routerLink]="['/addProduct']">Añadir Producto</a></li>
+        </ul>
+        <ul>
+            <li><a (click)="extendMenu()">Cerrar Sesión</a></li>
+        </ul>
+    </div>
+</nav>
 <router-outlet></router-outlet>

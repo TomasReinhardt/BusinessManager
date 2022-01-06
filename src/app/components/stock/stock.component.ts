@@ -11,6 +11,7 @@ import { ProductService } from 'src/app/services/products';
 export class StockComponent implements OnInit {
   public Products: Product[]  = []
   public nameSearch = "";
+  public nameStock = "";
 
   constructor(
     private _ProductService: ProductService 
@@ -31,5 +32,23 @@ export class StockComponent implements OnInit {
         console.log("-------------------------");
       }
     )
+  }
+
+  updateStock(product: Product){
+    setTimeout(()=> {
+      this._ProductService.updateProduct(product).subscribe(
+        response => {
+          this.nameStock = product.name;
+          setTimeout(()=> {
+            this.nameStock = "-------";
+          },5000)
+        },
+        err => {
+          console.log("-------------------------");
+          console.log(err);
+          console.log("-------------------------");
+        }
+      )
+    },500)
   }
 }

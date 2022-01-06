@@ -11,6 +11,5 @@ export class AppComponent {
 
   extendMenu(){
     $('.menuExtend').slideToggle();
-    console.log("hola")
   }
 }

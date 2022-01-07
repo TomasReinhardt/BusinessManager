@@ -21,6 +21,13 @@ export class AppComponent {
 
   extendMenu(){
     $('.menuExtend').slideToggle();
+
+    if($('#buttonMenu').attr('class')){
+      $('#buttonMenu').removeClass('expand')
+    }else {
+      $('#buttonMenu').addClass('expand')
+    }
+
   }
 
   logOut() {

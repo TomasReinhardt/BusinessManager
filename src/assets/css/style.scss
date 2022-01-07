@@ -23,26 +23,45 @@ body {
         text-align: center;
         text-decoration: none;
         border-bottom: 1px solid #333;
+        color: #212529;
+        transition: all 300ms;
+        cursor: pointer;
     }
-
+    .expand {
+        background-color: rgb(62,58,58) !important;
+        color: rgb(197, 197, 197) !important;
+    }
     .menuExtend {
         display: none;
         width: 100%;
-        height: 100vh;
+        height: 95vh;
         
         ul {
+            display: flex;
+            flex-wrap: wrap;
+            height: 100%;
             margin: 0px;
             padding: 0px;
             text-align: center;
             li {
                 list-style: none;
                 border-bottom: 1px solid #333;
+                width: 100%;
                 a {
-                    display: block;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     width: 100%;
+                    height: 100%;
                     padding: 10px 0px;
                     text-decoration: none;
                     color: #212529;
+                    cursor: pointer;
+                    transition: all 300ms;
+                }
+                a:hover {
+                    background-color: rgb(62,58,58) !important;
+                    color: rgb(197, 197, 197) !important;
                 }
             }
         }

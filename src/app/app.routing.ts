@@ -7,6 +7,7 @@ import { StockComponent } from './components/stock/stock.component';
 import { LoginComponent } from './components/login/login.component';
 import { SalesComponent } from './components/sales/sales.component';
 import { SaleComponent } from "./components/sale/sale.component";
+import { RegisterComponent } from "./components/register/register.component";
 import { AuthGuard } from "./auth.guard";
 
 const appRoutes: Routes = [
@@ -16,6 +17,7 @@ const appRoutes: Routes = [
     {path: "stock", component:StockComponent,canActivate: [AuthGuard]},
     {path: "login", component:LoginComponent},
     {path: "addProduct", component:AddProductComponent,canActivate: [AuthGuard]},
+    {path: "register", component:RegisterComponent,canActivate: [AuthGuard]}
 ]
 
 export const appRoutingProviders: any[] = [];

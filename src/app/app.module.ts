@@ -13,6 +13,7 @@ import { SalesComponent } from './components/sales/sales.component';
 import { SaleComponent } from './components/sale/sale.component';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     LoginComponent,
     SalesComponent,
     SaleComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

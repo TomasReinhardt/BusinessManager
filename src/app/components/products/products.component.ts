@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/products.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css'],
-  providers: [ProductService]
+  providers: [ProductService,UserService]
 })
 export class ProductsComponent implements OnInit {
   public total: number = 0;
@@ -20,7 +21,8 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     public _router: Router,
-    private _ProductService: ProductService 
+    private _ProductService: ProductService, 
+    private _UserService: UserService 
   ) { }
 
   ngOnInit(): void {
@@ -42,6 +44,7 @@ export class ProductsComponent implements OnInit {
         console.log("-------------------------");
         console.log(err);
         console.log("-------------------------");
+        this._UserService.checkToken(err.error.error)
       }
     )
   }

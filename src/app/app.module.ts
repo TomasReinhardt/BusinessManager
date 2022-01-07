@@ -11,6 +11,8 @@ import { StockComponent } from './components/stock/stock.component';
 import { LoginComponent } from './components/login/login.component';
 import { SalesComponent } from './components/sales/sales.component';
 import { SaleComponent } from './components/sale/sale.component';
+import { AuthGuard } from './auth.guard';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,12 @@ import { SaleComponent } from './components/sale/sale.component';
     FormsModule,
     routing
   ],
-  providers: [appRoutingProviders],
+  providers: [appRoutingProviders,AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

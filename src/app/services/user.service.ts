@@ -4,7 +4,9 @@ import { Observable } from "rxjs";
 import { Global } from "./global";
 import { User } from "../models/user";
 import { Router } from "@angular/router";
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class UserService {
     public url: string;
 
@@ -33,6 +35,14 @@ export class UserService {
         sessionStorage.removeItem('token');
         sessionStorage.removeItem('user');
         this._router.navigate(['login']);
+    }
+
+    checkToken(message:String) {
+        if(message == 'token no es valido'){
+            sessionStorage.removeItem('token');
+            sessionStorage.removeItem('user');
+            this._router.navigate(['login']);
+        }
     }
 
 }

@@ -106,6 +106,18 @@
   display: block;
 }
 
+.Sale .ticket .buyer input[type="text"] {
+  width: 50%;
+  margin-left: 10px;
+  padding-left: 10px;
+  border-radius: 20px;
+  border: none;
+}
+
+.Sale .ticket .total {
+  margin-bottom: 10px;
+}
+
 .Sale .end {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -1,4 +1,4 @@
-<nav id="menuG">
+<nav id="menuG" *ngIf="logged">
     <a id="buttonMenu" (click)="extendMenu()">Menu</a>
 
     <div class="menuExtend">
@@ -9,7 +9,7 @@
             <li><a (click)="extendMenu()" [routerLink]="['/addProduct']">Añadir Producto</a></li>
         </ul>
         <ul>
-            <li><a (click)="extendMenu()">Cerrar Sesión</a></li>
+            <li><a (click)="logOut()">Cerrar Sesión</a></li>
         </ul>
     </div>
 </nav>

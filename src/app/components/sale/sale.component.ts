@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { Sale } from 'src/app/models/sale';
-import { ProductService } from 'src/app/services/products';
-import { SaleService } from 'src/app/services/sales';
+import { ProductService } from 'src/app/services/products.service';
+import { SaleService } from 'src/app/services/sales.service';
 
 @Component({
   selector: 'sale',
@@ -14,7 +14,7 @@ import { SaleService } from 'src/app/services/sales';
 export class SaleComponent implements OnInit {
   public total: number = 0;
   public Trolley: any[]  = [];
-  public Sale: Sale = { _id:"",total:0,listProducts:[],date:"",fiado:false};
+  public Sale: Sale = { _id:"",total:0,listProducts:[],date:"",fiado:false,seller:"",buyer:""};
   public Products: Product[] = [];
 
   constructor(
@@ -25,8 +25,10 @@ export class SaleComponent implements OnInit {
 
   ngOnInit(): void {
     var aux = sessionStorage.getItem('trolley');
-    if(aux){
+    var aux2 = sessionStorage.getItem('user');
+    if(aux && aux2){
       this.Trolley = JSON.parse(aux);
+      this.Sale.seller = aux2;
       this.calcTotal();
     }
   }

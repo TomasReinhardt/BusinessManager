@@ -6,6 +6,8 @@ export class Sale {
         public total: number,
         public listProducts: SaleTrolley[],
         public date: string,
-        public fiado: boolean
+        public fiado: boolean,
+        public seller: string,
+        public buyer: string
     ){}
 }

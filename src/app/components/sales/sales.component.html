@@ -5,8 +5,7 @@
     <ng-container *ngFor="let sale of Sales; let i=index">
         <div class="saleBox" *ngIf="sale.date == dateActual">
             <button class="buttonSale" (click)="expandSale(i)">
-                Fecha: {{sale.date}} -- Total: {{sale.total}}
-
+                Fecha: {{sale.date}} - Total: ${{sale.total}}
             </button>
             <div class="fiado">
                 <input type="checkbox" id="fiado" name="fiado" #stock [(ngModel)]="sale.fiado" />
@@ -17,6 +16,8 @@
                 </label>
             </div>
             <div class="infoSale" id="productSale{{i}}">
+                <h5><b>Venderdor:</b> {{sale.seller}}</h5>
+                <h5><b>Comprador:</b> {{sale.buyer}}</h5>
                 <span *ngFor="let product of sale.listProducts">
                     {{product.product.name}}-- ${{product.product.price}}x{{product.cant}} <br>
                 </span>

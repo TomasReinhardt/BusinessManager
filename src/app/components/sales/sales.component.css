@@ -36,7 +36,7 @@
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   width: 80%;
-  height: 50px;
+  min-height: 50px;
   margin-top: 20px;
 }
 
@@ -66,6 +66,10 @@
 
 .Sales .saleBox .infoSale span {
   font-size: 22px;
+}
+
+.Sales .saleBox .infoSale h5, .Sales .saleBox .infoSale b {
+  font-size: 18px;
 }
 
 .Sales .saleBox .fiado {

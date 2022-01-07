@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Sale } from 'src/app/models/sale';
-import { SaleService } from 'src/app/services/sales';
+import { SaleService } from 'src/app/services/sales.service';
 import * as $ from 'jquery';
 
 @Component({

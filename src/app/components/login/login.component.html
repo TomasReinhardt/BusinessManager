@@ -1,1 +1,12 @@
-<p>login works!</p>
+<div class="login">
+    <div class="formLogin">
+        <span class="err" *ngIf="ErrorUser"><h3>{{ErrorUser}}</h3></span>
+        <form id="formLogin" #formLogin="ngForm" (ngSubmit)="checkUser(formLogin)" >
+            <input type="text" placeholder="Usuario.." name="username" #username [(ngModel)]="User.username"/>
+            <input type="password" placeholder="Contraseña..." name="password" #password [(ngModel)]="User.password"/>
+            <span class="buttonLogin">
+                <input type="submit" value="Iniciar Sesion">
+            </span>
+        </form>
+    </div>
+</div>

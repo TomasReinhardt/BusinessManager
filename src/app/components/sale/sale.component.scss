@@ -8,7 +8,7 @@
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 60px;
 
     .ticket {
         margin-top: 20px;
@@ -23,6 +23,29 @@
         }
         .auxDiv {
             border: 2px dashed black;
+        }
+        .fiado {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            input[type="checkbox"] {
+                display: none;
+            }
+            svg {
+                margin-left: 10px;
+                border: 2px solid black;
+                background-color: black;
+                border-radius: 100%;
+                width: 24px;
+                height: 24px;
+                cursor: pointer;
+            }
+            .noStock {
+                color: rgb(160, 97, 97) !important;
+            }
+            .siStock{
+                color: rgb(97, 160, 105);
+            }
         }
         .products {
             margin: 20px 0px;
@@ -50,8 +73,6 @@
             }
         }
         .total {
-            margin: 20px 0px;
-            text-align: center;
         }
     }
     .end {

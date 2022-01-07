@@ -1,0 +1,104 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-size: 25px;
+}
+
+.Sales {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  margin-top: 60px;
+}
+
+.Sales select {
+  margin-top: 20px;
+  padding: 5px 5px;
+  width: 80%;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.Sales .saleBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 80%;
+  height: 50px;
+  margin-top: 20px;
+}
+
+.Sales .saleBox .buttonSale {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 50px;
+  background-color: #7a7676;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.Sales .saleBox .infoSale {
+  display: none;
+  width: 100%;
+  background-color: #bdb7b7;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.Sales .saleBox .infoSale span {
+  font-size: 22px;
+}
+
+.Sales .saleBox .fiado {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  height: 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  right: 12%;
+}
+
+.Sales .saleBox .fiado input[type="checkbox"] {
+  display: none;
+}
+
+.Sales .saleBox .fiado svg {
+  display: block;
+  border: 2px solid black;
+  background-color: black;
+  border-radius: 100%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.Sales .saleBox .fiado .noStock {
+  color: #a06161 !important;
+}
+
+.Sales .saleBox .fiado .siStock {
+  color: #61a069;
+}
+/*# sourceMappingURL=sales.component.css.map */

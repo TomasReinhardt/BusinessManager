@@ -1,3 +1,28 @@
 <div class="register">
-    
+    <form id="formRegister" #formRegister="ngForm" (ngSubmit)="registerUser(formRegister)" >
+        <div>
+            <label for="name">Nombre</label>
+            <input type="text" name="name" #name [(ngModel)]="User.name"/>
+            <h5>minimo 3 caracteres</h5>
+        </div>
+        <div>
+            <label for="username">Usuario</label>
+            <input type="text" name="username" #username [(ngModel)]="User.username"/>
+            <h5>minimo 4 caracteres</h5>
+        </div>
+        <div>
+            <label for="password">Contraseña</label>
+            <input type="password" name="password" #password [(ngModel)]="User.password"/>
+            <h5>minimo 8 caracteres</h5>
+        </div>
+        <span class="buttonLogin">
+            <input type="submit" value="Iniciar Sesion">
+        </span>
+    </form>
+    <div id="error" *ngIf="Error">
+       <h5>{{Error}}</h5>
+    </div>
+    <div id="success" *ngIf="success">
+        <h5>{{success}}</h5>
+     </div>
 </div>

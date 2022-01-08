@@ -1,3 +1,9 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-size: 25px;
+}
+
 .register {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8,5 +14,65 @@
       -ms-flex-pack: center;
           justify-content: center;
   margin-top: 60px;
+}
+
+.register form {
+  width: 80%;
+  padding: 20px;
+  margin-top: 20px;
+  text-align: center;
+  background-color: #7a7676;
+  border-radius: 20px;
+}
+
+.register form label {
+  width: 100%;
+}
+
+.register form input {
+  width: 80%;
+  border-radius: 20px;
+  border: none;
+  padding-left: 20px;
+}
+
+.register form h5 {
+  margin-bottom: 20px;
+  color: #504f4f;
+}
+
+.register form .buttonLogin {
+  width: 100%;
+  text-align: center;
+}
+
+.register form .buttonLogin input[type="submit"] {
+  width: 60%;
+  padding: 10px 15px;
+  border-radius: 30px;
+  border: none;
+  background-color: lightgreen;
+}
+
+.register #error, .register #success {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 80%;
+  margin-top: 20px;
+}
+
+.register #error h5, .register #success h5 {
+  padding: 10px;
+  background-color: lightcoral;
+  border-radius: 30px;
+  text-align: center;
+}
+
+.register #success h5 {
+  background-color: lightgreen;
 }
 /*# sourceMappingURL=register.component.css.map */

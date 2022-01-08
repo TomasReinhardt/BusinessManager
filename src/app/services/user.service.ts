@@ -22,6 +22,11 @@ export class UserService {
         return this._http.post(this.url+'login',user, {headers: headers});
     }
 
+    addUser(user: User):Observable<any> {
+        let headers = new HttpHeaders().set('Content-Type','application/json');
+        return this._http.post(this.url+'register',user, {headers:headers});
+    }
+
     loggedIn():boolean {
         if (sessionStorage.getItem('token') && sessionStorage.getItem('user')) return true
         else return false;

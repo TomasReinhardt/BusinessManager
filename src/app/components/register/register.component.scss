@@ -1,6 +1,62 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-size: 25px;
+}
 .register {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 60px;
+    form {
+        width: 80%;
+        padding: 20px;
+        margin-top: 20px;
+        text-align: center;
+        background-color: rgb(122, 118, 118);
+        border-radius: 20px;
+        label {
+            width: 100%;
+        }
+        input {
+            width: 80%;
+            border-radius: 20px;
+            border: none;
+            padding-left: 20px;
+        }
+        h5 {
+            margin-bottom: 20px;
+            color: rgb(80, 79, 79);
+        }
+        .buttonLogin {
+            width: 100%;
+            text-align: center;
+
+            input[type="submit"] {
+                width: 60%;
+                padding: 10px 15px;
+                border-radius: 30px;
+                border: none;
+                background-color: lightgreen;
+            }
+        }
+    }
+    #error,#success {
+        display: flex;
+        justify-content: center;
+        width: 80%;
+        margin-top: 20px;
+        h5 {
+            padding: 10px;
+            background-color: lightcoral;
+            border-radius: 30px;
+            text-align: center;
+        }
+    }
+    #success {
+        h5 {
+            background-color: lightgreen;
+        }
+    }
+
 }

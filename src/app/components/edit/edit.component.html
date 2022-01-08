@@ -1,0 +1,52 @@
+<div class="Edit">
+
+    <div class="search"><input type="text" placeholder="Buscar" [(ngModel)]="nameSearch"/></div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light pe-0 ps-0">
+        <div class="container-fluid justify-content-center pe-0 ps-0">
+
+          <a class="navbar-toggler pb-2 pt-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCategorys" aria-controls="navbarCategorys" aria-expanded="false" aria-label="Toggle navigation">
+            <span>Categorías</span>
+          </a>
+
+          <div class="collapse navbar-collapse mt-3 mt-lg-0" id="navbarCategorys">
+            <ul class="navbar-nav mb-lg-0 justify-content-around">
+              <li class="nav-item pb-1 pt-1" *ngFor="let category of Categorys">
+                <a class="nav-link active p-0" aria-current="page" (click)="filterCategory(category)">{{category}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+    <div class="productsList">
+        <ng-container *ngFor="let product of Products; let i=index">
+            <div class="productCard" *ngIf="product.name.toLowerCase().includes(nameSearch) && product.category.includes(nameCategory)" [ngClass]="{'noStock': !product.stock}">
+                <span class="product">
+                    <span class="nameProduct">{{product.name}}</span>
+
+                    <div class="boxAux">
+                        <div class="price">
+                            <label for="price">Precio:</label>
+                            <input type="number" name="price" #price [(ngModel)]="product.price"/>
+                        </div>
+    
+                        <span class="stockDiv">
+                            <label for="stock">Stock:</label>
+                            <input type="checkbox" id="stock" name="stock" #stock [(ngModel)]="product.stock" />
+                            <label for="stock" [ngClass]="{'noStock': !product.stock, 'siStock': product.stock}" (click)="updateStock(product)">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                                  </svg>
+                            </label>
+                        </span>
+                    </div>
+                    
+                    <span class="buttons">
+                        <button>Actualizar</button>
+                    </span>
+                </span>
+            </div>
+        </ng-container>
+    </div>
+</div>

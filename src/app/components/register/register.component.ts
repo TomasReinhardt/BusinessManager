@@ -33,6 +33,7 @@ export class RegisterComponent implements OnInit {
           console.log("-------------------------");
           console.log(err);
           console.log("-------------------------");
+          this._UserService.checkToken(err.error.error)
   
           if(err.error.error == "\"name\" is not allowed to be empty" && err.error.error == "\"username\" is not allowed to be empty" && err.error.error == "\"password\" is not allowed to be empty"){
             this.Error = "Credenciales no validas"

@@ -4,29 +4,47 @@ import { ProductService } from 'src/app/services/products.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'stock',
-  templateUrl: './stock.component.html',
-  styleUrls: ['./stock.component.css'],
+  selector: 'edit',
+  templateUrl: './edit.component.html',
+  styleUrls: ['./edit.component.css'],
   providers: [ProductService,UserService]
 })
-export class StockComponent implements OnInit {
-  public Products: Product[]  = []
+export class EditComponent implements OnInit {
+  public Categorys: any[]  = ["Todos"]
   public nameSearch = "";
-  public nameStock = "";
+  public nameCategory = "";
+  public Products: Product[]  = []
 
   constructor(
     private _ProductService: ProductService,
-    private _UserService: UserService
-  ) { }
+    private _UserService: UserService 
+    ) { }
 
   ngOnInit(): void {
     this.getProducts();
+  }
+
+  filterCategory(category:string) {
+    if(category == "Todos"){
+      this.nameCategory = "";
+    }else {
+      this.nameCategory = category;
+    }
+  }
+
+  getCategorys() {
+    for (let i = 0; i < this.Products.length; i++) {
+      if(this.Categorys.findIndex(category => category == this.Products[i].category) == -1){
+        this.Categorys.push(this.Products[i].category);
+      }
+    }
   }
 
   getProducts() {
     this._ProductService.getProducts().subscribe(
       response => {
         this.Products = response.product;
+        this.getCategorys();
       },
       err => {
         console.log("-------------------------");
@@ -41,10 +59,7 @@ export class StockComponent implements OnInit {
     setTimeout(()=> {
       this._ProductService.updateProduct(product).subscribe(
         response => {
-          this.nameStock = product.name;
-          setTimeout(()=> {
-            this.nameStock = "-------";
-          },5000)
+          
         },
         err => {
           console.log("-------------------------");

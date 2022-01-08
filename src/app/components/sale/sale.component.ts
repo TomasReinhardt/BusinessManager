@@ -4,12 +4,13 @@ import { Product } from 'src/app/models/product';
 import { Sale } from 'src/app/models/sale';
 import { ProductService } from 'src/app/services/products.service';
 import { SaleService } from 'src/app/services/sales.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'sale',
   templateUrl: './sale.component.html',
   styleUrls: ['./sale.component.css'],
-  providers: [ProductService,SaleService]
+  providers: [ProductService,SaleService,UserService]
 })
 export class SaleComponent implements OnInit {
   public total: number = 0;
@@ -19,7 +20,7 @@ export class SaleComponent implements OnInit {
 
   constructor(
     private _router: Router,
-    private _ProductService: ProductService,
+    private _UserService: UserService,
     private _SaleService: SaleService
   ) { }
 
@@ -45,6 +46,7 @@ export class SaleComponent implements OnInit {
         console.log("-------------------------");
         console.log(err);
         console.log("-------------------------");
+        this._UserService.checkToken(err.error.error)
       }
     )
   }

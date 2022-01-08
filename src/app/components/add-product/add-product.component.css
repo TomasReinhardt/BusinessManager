@@ -1,0 +1,132 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-size: 25px;
+}
+
+.addProduct {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 60px;
+}
+
+.addProduct form {
+  width: 80%;
+  padding: 20px;
+  margin-top: 20px;
+  text-align: center;
+  background-color: #7a7676;
+  border-radius: 20px;
+}
+
+.addProduct form div {
+  margin-bottom: 10px;
+}
+
+.addProduct form label {
+  width: 100%;
+}
+
+.addProduct form input {
+  width: 80%;
+  border-radius: 20px;
+  border: none;
+  text-align: center;
+}
+
+.addProduct form input[type=number]::-webkit-inner-spin-button,
+.addProduct form input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.addProduct form input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.addProduct form h5 {
+  margin-bottom: 20px;
+  color: #504f4f;
+}
+
+.addProduct form .buttonAdd {
+  width: 100%;
+  text-align: center;
+}
+
+.addProduct form .buttonAdd input[type="submit"] {
+  width: 60%;
+  padding: 10px 15px;
+  border-radius: 30px;
+  border: none;
+  background-color: lightgreen;
+}
+
+.addProduct form #stockDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
+}
+
+.addProduct form #stockDiv label {
+  width: 80%;
+}
+
+.addProduct form #stockDiv input[type="checkbox"] {
+  display: none;
+}
+
+.addProduct form #stockDiv svg {
+  border: 2px solid black;
+  background-color: black;
+  border-radius: 100%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.addProduct form #stockDiv .noStock {
+  color: #a06161 !important;
+}
+
+.addProduct form #stockDiv .siStock {
+  color: #61a069;
+}
+
+.addProduct #error, .addProduct #success {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 80%;
+  margin-top: 20px;
+}
+
+.addProduct #error h5, .addProduct #success h5 {
+  padding: 10px;
+  background-color: lightcoral;
+  border-radius: 30px;
+  text-align: center;
+}
+
+.addProduct #success h5 {
+  background-color: lightgreen;
+}
+/*# sourceMappingURL=add-product.component.css.map */

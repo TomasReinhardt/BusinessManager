@@ -14,6 +14,7 @@ import { SaleComponent } from './components/sale/sale.component';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { RegisterComponent } from './components/register/register.component';
+import { EditComponent } from './components/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { RegisterComponent } from './components/register/register.component';
     SalesComponent,
     SaleComponent,
     RegisterComponent,
+    EditComponent,
   ],
   imports: [
     BrowserModule,

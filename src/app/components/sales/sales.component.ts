@@ -1,20 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { Sale } from 'src/app/models/sale';
 import { SaleService } from 'src/app/services/sales.service';
+import { UserService } from 'src/app/services/user.service';
 import * as $ from 'jquery';
 
 @Component({
   selector: 'sales',
   templateUrl: './sales.component.html',
   styleUrls: ['./sales.component.css'],
-  providers: [SaleService]
+  providers: [SaleService,UserService]
 })
 export class SalesComponent implements OnInit {
   public Sales: Sale[] = [];
   public Dates: string[] = [];
   public dateActual: string = "";
   constructor(
-    private _SaleService : SaleService
+    private _SaleService : SaleService,
+    private _UserService: UserService
   ) { }
 
   ngOnInit(): void {
@@ -31,6 +33,7 @@ export class SalesComponent implements OnInit {
         console.log("-------------------------");
         console.log(err);
         console.log("-------------------------");
+        this._UserService.checkToken(err.error.error)
       }
     )
   }

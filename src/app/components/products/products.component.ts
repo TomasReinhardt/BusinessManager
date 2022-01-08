@@ -16,7 +16,6 @@ export class ProductsComponent implements OnInit {
   public Categorys: any[]  = ["Todos"]
   public nameSearch = "";
   public nameCategory = "";
-
   public Products: Product[]  = []
 
   constructor(

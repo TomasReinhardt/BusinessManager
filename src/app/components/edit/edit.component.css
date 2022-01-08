@@ -1,0 +1,229 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-size: 25px;
+}
+
+.Edit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 60px;
+}
+
+.Edit .search {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0px;
+}
+
+.Edit .search input {
+  width: 80%;
+  height: 50px;
+  border: 2px solid #333;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.Edit .navbar {
+  width: 80%;
+  padding: 10px;
+  text-align: center;
+  background-color: transparent !important;
+  margin-bottom: 10px;
+}
+
+.Edit .navbar .navbar-toggler {
+  width: 100%;
+  border: none;
+  text-decoration: none;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+}
+
+.Edit .navbar .navbar-collapse {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.Edit .navbar .navbar-collapse .navbar-nav {
+  width: 100%;
+}
+
+.Edit .navbar .navbar-collapse .navbar-nav li {
+  width: 100%;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.Edit .navbar .navbar-collapse .navbar-nav li:hover {
+  background-color: #ccc;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+}
+
+.Edit .productsList {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 120px;
+}
+
+.Edit .productsList .productCard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 80%;
+  background-color: #7a7676;
+  margin: 20px 0px;
+}
+
+.Edit .productsList .productCard .product {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.Edit .productsList .productCard .product .nameProduct {
+  width: 100%;
+  text-align: center;
+}
+
+.Edit .productsList .productCard .product .boxAux {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 10px 20px;
+}
+
+.Edit .productsList .productCard .product .boxAux .price {
+  margin-right: 10px;
+}
+
+.Edit .productsList .productCard .product .boxAux .price input {
+  width: 100px;
+  text-align: center;
+  border-radius: 20px;
+  border: none;
+  margin-left: 10px;
+}
+
+.Edit .productsList .productCard .product .boxAux .price input[type=number]::-webkit-inner-spin-button,
+.Edit .productsList .productCard .product .boxAux .price input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.Edit .productsList .productCard .product .boxAux .price input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.Edit .productsList .productCard .product .boxAux .stockDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Edit .productsList .productCard .product .boxAux .stockDiv input[type="checkbox"] {
+  display: none;
+}
+
+.Edit .productsList .productCard .product .boxAux .stockDiv svg {
+  border: 2px solid black;
+  background-color: black;
+  border-radius: 100%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.Edit .productsList .productCard .product .boxAux .stockDiv .noStock {
+  color: #a06161 !important;
+}
+
+.Edit .productsList .productCard .product .boxAux .stockDiv .siStock {
+  color: #61a069;
+}
+
+.Edit .productsList .productCard .product .buttons {
+  text-align: center;
+  width: 80%;
+  margin-bottom: 10px;
+}
+
+.Edit .productsList .productCard .product .buttons button {
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: lightgreen;
+}
+
+.Edit .sale {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.Edit .sale button {
+  display: block;
+  width: 90%;
+  margin: 20px 0px;
+}
+
+.Edit .sale button {
+  position: fixed;
+  cursor: pointer;
+  padding: 30px 30px;
+  font-size: 25px;
+  bottom: 0px;
+  background-color: lightgreen;
+  border: none;
+  border-radius: 20px;
+}
+/*# sourceMappingURL=edit.component.css.map */

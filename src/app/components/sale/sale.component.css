@@ -34,7 +34,7 @@
   border: 2px dashed black;
 }
 
-.Sale .ticket .fiado {
+.Sale .ticket .Pagado {
   margin-top: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -44,11 +44,11 @@
           align-items: center;
 }
 
-.Sale .ticket .fiado input[type="checkbox"] {
+.Sale .ticket .Pagado input[type="checkbox"] {
   display: none;
 }
 
-.Sale .ticket .fiado svg {
+.Sale .ticket .Pagado svg {
   margin-left: 10px;
   border: 2px solid black;
   background-color: black;
@@ -58,11 +58,11 @@
   cursor: pointer;
 }
 
-.Sale .ticket .fiado .noStock {
+.Sale .ticket .Pagado .noStock {
   color: #a06161 !important;
 }
 
-.Sale .ticket .fiado .siStock {
+.Sale .ticket .Pagado .siStock {
   color: #61a069;
 }
 

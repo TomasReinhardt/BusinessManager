@@ -5,15 +5,16 @@ import { UserService } from 'src/app/services/user.service';
 import * as $ from 'jquery';
 
 @Component({
-  selector: 'sales',
-  templateUrl: './sales.component.html',
-  styleUrls: ['./sales.component.css'],
+  selector: 'app-fiado',
+  templateUrl: '../sales/sales.component.html',
+  styleUrls: ['../sales/sales.component.css'],
   providers: [SaleService,UserService]
 })
-export class SalesComponent implements OnInit {
+export class FiadoComponent implements OnInit {
   public Sales: Sale[] = [];
   public Dates: string[] = [];
   public dateActual: string = "";
+
   constructor(
     private _SaleService : SaleService,
     private _UserService: UserService
@@ -26,7 +27,11 @@ export class SalesComponent implements OnInit {
   getSales() {
     this._SaleService.getSales().subscribe(
       response => {
-        this.Sales = response.sale;
+        for (let i = 0; i < response.sale.length; i++) {
+          if(response.sale[i].fiado == false){
+            this.Sales.push(response.sale[i])
+          }
+        }
         this.getDates()
       },
       err => {
@@ -48,10 +53,12 @@ export class SalesComponent implements OnInit {
     this.dateActual = this.Dates[0];
   }
 
-  updateSale(sale: Sale, index: any){
+  updateSale(sale: Sale,index:any){
+    this.Sales.splice(index,1)
     setTimeout(()=> {
       this._SaleService.updateSale(sale).subscribe(
         response => {
+          console.log(response)
         },
         err => {
           console.log("-------------------------");

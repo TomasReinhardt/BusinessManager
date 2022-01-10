@@ -29,9 +29,10 @@
         .buttonSale {
             display: flex;
             align-items: center;
+            justify-content: center;
             margin-bottom: 10px;
             width: 100%;
-            height: 50px;
+            min-height: 50px;
             background-color: rgb(122, 118, 118);
             border: none;
             border-radius: 10px;
@@ -45,37 +46,37 @@
             padding: 10px;
             border-radius: 10px;
             span {
-                font-size: 22px;
+                font-size: 20px;
             }
             h5,b {
                 font-size: 18px;
             }
-        }
-
-        .fiado {
-            display: flex;
-            position: absolute;
-            height: 50px;
-            align-items: center;
-            right: 12%;
-            input[type="checkbox"] {
-                display: none;
+            .boxPagado {
+                display: flex;
+                .pagado {
+                    display: flex;
+                    align-items: center;
+                    margin-left: 10px;
+                    input[type="checkbox"] {
+                        display: none;
+                    }
+                    svg {
+                        display: block;
+                        border: 2px solid black;
+                        background-color: black;
+                        border-radius: 100%;
+                        width: 24px;
+                        height: 24px;
+                        cursor: pointer;
+                    }
+                    .noStock {
+                        color: rgb(160, 97, 97) !important;
+                    }
+                    .siStock{
+                        color: rgb(97, 160, 105);
+                    }
+                }
             }
-            svg {
-                display: block;
-                border: 2px solid black;
-                background-color: black;
-                border-radius: 100%;
-                width: 24px;
-                height: 24px;
-                cursor: pointer;
-            }
-            .noStock {
-                color: rgb(160, 97, 97) !important;
-            }
-            .siStock{
-                color: rgb(97, 160, 105);
-            }
-        }
+        }        
     }
 }

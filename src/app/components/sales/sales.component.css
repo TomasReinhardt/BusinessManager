@@ -1,7 +1,7 @@
 * {
   margin: 0px;
   padding: 0px;
-  font-size: 25px;
+  font-size: 30px;
 }
 
 .Sales {
@@ -24,6 +24,7 @@
   border: none;
   border-radius: 10px;
   text-align: center;
+  padding-left: 23px;
 }
 
 .Sales .saleBox {
@@ -68,11 +69,11 @@
 }
 
 .Sales .saleBox .infoSale span {
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .Sales .saleBox .infoSale h5, .Sales .saleBox .infoSale b {
-  font-size: 18px;
+  font-size: 22px;
 }
 
 .Sales .saleBox .infoSale .boxPagado {
@@ -100,8 +101,8 @@
   border: 2px solid black;
   background-color: black;
   border-radius: 100%;
-  width: 24px;
-  height: 24px;
+  width: 16px;
+  height: 16px;
   cursor: pointer;
 }
 

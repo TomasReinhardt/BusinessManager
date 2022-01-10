@@ -1,7 +1,7 @@
 * {
     margin: 0px;
     padding: 0px;
-    font-size: 25px;
+    font-size: 30px;
 }
 .Sales {
     display: flex;
@@ -17,6 +17,7 @@
         border: none;
         border-radius: 10px;
         text-align: center;
+        padding-left: 23px;
     }
 
     .saleBox {
@@ -46,10 +47,10 @@
             padding: 10px;
             border-radius: 10px;
             span {
-                font-size: 20px;
+                font-size: 25px;
             }
             h5,b {
-                font-size: 18px;
+                font-size: 22px;
             }
             .boxPagado {
                 display: flex;
@@ -65,8 +66,8 @@
                         border: 2px solid black;
                         background-color: black;
                         border-radius: 100%;
-                        width: 24px;
-                        height: 24px;
+                        width: 16px;
+                        height: 16px;
                         cursor: pointer;
                     }
                     .noStock {

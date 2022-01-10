@@ -1,11 +1,18 @@
+@font-face {
+  font-family: "SairaCondensed";
+  src: url("../fonts/SairaCondensed/SairaCondensed-Regular.ttf");
+}
+
 * {
   margin: 0px;
   padding: 0px;
-  font-size: 25px;
+  font-family: "SairaCondensed";
+  font-size: 30px;
 }
 
 body {
   background: #3e3a3a !important;
+  min-height: 100vh;
 }
 
 #menuG {

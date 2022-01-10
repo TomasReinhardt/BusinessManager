@@ -2,22 +2,11 @@
 
     <div class="search"><input type="text" placeholder="Buscar" [(ngModel)]="nameSearch"/></div>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light pe-0 ps-0">
-        <div class="container-fluid justify-content-center pe-0 ps-0">
-
-          <a class="navbar-toggler pb-2 pt-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCategorys" aria-controls="navbarCategorys" aria-expanded="false" aria-label="Toggle navigation">
-            <span>Categorías</span>
-          </a>
-
-          <div class="collapse navbar-collapse mt-3 mt-lg-0" id="navbarCategorys">
-            <ul class="navbar-nav mb-lg-0 justify-content-around">
-              <li class="nav-item pb-1 pt-1" *ngFor="let category of Categorys">
-                <a class="nav-link active p-0" aria-current="page" (click)="filterCategory(category)">{{category}}</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-    </nav>
+    <select>
+        <option *ngFor="let category of Categorys">
+            {{category}}
+        </option>
+    </select>
 
     <div class="productsList">
         <ng-container *ngFor="let product of Products; let i=index">

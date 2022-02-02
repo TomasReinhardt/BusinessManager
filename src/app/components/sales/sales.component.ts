@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Sale } from 'src/app/models/sale';
 import { SaleService } from 'src/app/services/sales.service';
 import { UserService } from 'src/app/services/user.service';
 import * as $ from 'jquery';
@@ -11,7 +10,7 @@ import * as $ from 'jquery';
   providers: [SaleService,UserService]
 })
 export class SalesComponent implements OnInit {
-  public Sales: Sale[] = [];
+  public Sales: any = [];
   public Dates: string[] = [];
   public dateActual: string = "";
   constructor(
@@ -26,8 +25,9 @@ export class SalesComponent implements OnInit {
   getSales() {
     this._SaleService.getSales().subscribe(
       response => {
-        this.Sales = response.sale;
-        this.getDates()
+        var sales = response.result;
+        this.getDates(sales)
+        this.getArraySales(sales)
       },
       err => {
         console.log("-------------------------");
@@ -38,19 +38,46 @@ export class SalesComponent implements OnInit {
     )
   }
 
-  getDates(){
-    for (let i = 0; i < this.Sales.length; i++) {
-      if(this.Dates.findIndex(date => date == this.Sales[i].date) == -1){
-        this.Dates.push(this.Sales[i].date);
+  getDates(sales:any){
+    for (let i = 0; i < sales.length; i++) {
+      var date = sales[i].date.slice(0,10);
+      if(!this.Dates.find(element => element == date)){
+        this.Dates.push(date)
       }
     }
-    this.Dates.reverse();
     this.dateActual = this.Dates[0];
   }
+  
+  getArraySales(sales: any) {
+    for (let i = 0; i < sales.length; i++) {
+      var auxList = sales[i].listProducts.split('//')
+      var auxProducts = [];
 
-  updateSale(sale: Sale, index: any){
+      for (let i = 0; i < auxList.length; i++) {
+        if(auxList[i] != ""){
+          var aux = auxList[i].split('/');
+          var aux2 = aux[0]+' -- $'+aux[1]+'x'+aux[2];
+          auxProducts.push(aux2)
+        }
+        
+      }
+
+      var sale = {
+        id: sales[i].id,
+        buyer: sales[i].buyer,
+        fiado: sales[i].fiado,
+        seller: sales[i].seller,
+        total: sales[i].total,
+        date: sales[i].date.slice(0,10),
+        listProducts: auxProducts
+      }
+      this.Sales.push(sale)
+    }
+  }
+
+  updateSale(sale: any, index: any,i: any){
     setTimeout(()=> {
-      this._SaleService.updateSale(sale).subscribe(
+      this._SaleService.updateSale(sale,index).subscribe(
         response => {
         },
         err => {

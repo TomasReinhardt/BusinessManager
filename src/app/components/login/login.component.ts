@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
   providers: [UserService]
 })
 export class LoginComponent implements OnInit {
-  public User: User = {name:"----",username:"",password:""}
+  public User = {username:"",password:""}
   public ErrorUser: string = "";
   constructor(
     private _UserService: UserService,
@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem('user', response.user)
         formLogin.reset();
         this._router.navigate(['']);
+        console.log(response)
       },
       err => {
         console.log("-------------------------");

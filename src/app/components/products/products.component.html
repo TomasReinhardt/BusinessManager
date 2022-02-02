@@ -2,8 +2,8 @@
 
     <div class="search"><input type="text" placeholder="Buscar" [(ngModel)]="nameSearch"/></div>
 
-    <select>
-        <option *ngFor="let category of Categorys">
+    <select [(ngModel)]="nameCategory">
+        <option *ngFor="let category of Categorys" value="{{category}}">
             {{category}}
         </option>
     </select>

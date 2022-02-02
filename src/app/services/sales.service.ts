@@ -16,15 +16,14 @@ export class SaleService {
         let headers = new HttpHeaders().set('Content-Type','application/json');
         return this._http.get(this.url+'sales', {headers: headers});
     }
-    addSale(sale: Sale):Observable<any>{
-        var params = JSON.stringify(sale);
+    addSale(sale: any):Observable<any>{
         let headers = new HttpHeaders().set('Content-Type','application/json');
-        return this._http.post(this.url+'addSale',params,{headers: headers});
+        return this._http.post(this.url+'addSale',sale,{headers: headers});
     }
-    updateSale(sale: Sale):Observable<any> {
+    updateSale(sale: any,index: any):Observable<any> {
         var params = JSON.stringify(sale);
         let headers = new HttpHeaders().set('Content-Type','application/json');
-        return this._http.put(this.url+'updateSale/'+sale._id,params,{headers: headers});
+        return this._http.put(this.url+'updateSale/'+index,params,{headers: headers});
     }
     deleteSale(id: string):Observable<any> {
         let headers = new HttpHeaders().set('Content-Type','application/json');

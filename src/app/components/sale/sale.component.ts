@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Product } from 'src/app/models/product';
-import { Sale } from 'src/app/models/sale';
 import { ProductService } from 'src/app/services/products.service';
 import { SaleService } from 'src/app/services/sales.service';
 import { UserService } from 'src/app/services/user.service';
@@ -15,8 +13,7 @@ import { UserService } from 'src/app/services/user.service';
 export class SaleComponent implements OnInit {
   public total: number = 0;
   public Trolley: any[]  = [];
-  public Sale: Sale = { _id:"",total:0,listProducts:[],date:"",fiado:false,seller:"",buyer:""};
-  public Products: Product[] = [];
+  public Sale = {total:0,listProducts:"",fiado:false,seller:"",buyer:""};
 
   constructor(
     private _router: Router,
@@ -35,7 +32,6 @@ export class SaleComponent implements OnInit {
   }
 
   addSale() {
-    this.Sale.listProducts = this.Trolley;
     this.Sale.total = this.total;
     this._SaleService.addSale(this.Sale).subscribe(
       response => {
@@ -66,8 +62,13 @@ export class SaleComponent implements OnInit {
 
   end(){
     sessionStorage.setItem("trolley","");
-    this.addSale();
     //se manda la compra a la base de datos
+    var listProducts = "";
+    for (let i = 0; i < this.Trolley.length; i++) {
+      listProducts += this.Trolley[i].product.name+'-'+this.Trolley[i].product.price+'-'+this.Trolley[i].cant+'//'
+    }
+    this.Sale.listProducts = listProducts;
+    this.addSale();
   }
 
 

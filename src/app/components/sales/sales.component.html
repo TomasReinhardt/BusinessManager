@@ -3,9 +3,9 @@
         <option *ngFor="let date of Dates" value="{{date}}">{{date}}</option>
     </select>
     <ng-container *ngFor="let sale of Sales; let i=index">
-        <div class="saleBox" *ngIf="sale.date == dateActual">
+        <div class="saleBox" *ngIf="sale.date.slice(0,10) == dateActual">
             <button class="buttonSale" (click)="expandSale(i)">
-                Fecha: {{sale.date}} <br> Total: ${{sale.total}}
+                Fecha: {{sale.date | date:'dd/MM/yyyy'}} <br> Total: ${{sale.total}}
             </button>
            
             <div class="infoSale" id="productSale{{i}}">
@@ -15,7 +15,7 @@
                     <h5><b>Pagado:</b></h5>
                     <div class="pagado">
                         <input type="checkbox" id="pagadosale{{i}}" name="pagadoSale" #pagadoSale [(ngModel)]="sale.fiado" />
-                        <label for="pagadosale{{i}}" [ngClass]="{'noStock': !sale.fiado, 'siStock': sale.fiado}" (click)="updateSale(sale,i)">
+                        <label for="pagadosale{{i}}" [ngClass]="{'noStock': !sale.fiado, 'siStock': sale.fiado}" (click)="updateSale(sale,sale.id,i)">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
                                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
                                 </svg>
@@ -23,7 +23,7 @@
                     </div>
                 </span>
                 <span *ngFor="let product of sale.listProducts">
-                    {{product.product.name}}-- ${{product.product.price}}x{{product.cant}} <br>
+                    {{product}}<br>
                 </span>
             </div>
            

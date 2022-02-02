@@ -17,7 +17,7 @@ export class UserService {
         this.url = Global.url;
     }
 
-    singUp(user: User):Observable<any> {
+    singUp(user:any):Observable<any> {
         let headers = new HttpHeaders().set('Content-Type','application/json');
         return this._http.post(this.url+'login',user, {headers: headers});
     }

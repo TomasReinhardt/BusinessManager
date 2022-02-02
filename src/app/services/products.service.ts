@@ -22,10 +22,10 @@ export class ProductService {
         let headers = new HttpHeaders().set('Content-Type','application/json');
         return this._http.post(this.url+'addProduct',params,{headers: headers});
     }
-    updateProduct(product: Product):Observable<any> {
+    updateProduct(product: any):Observable<any> {
         var params = JSON.stringify(product);
         let headers = new HttpHeaders().set('Content-Type','application/json');
-        return this._http.put(this.url+'updateProduct/'+product._id,params,{headers: headers});
+        return this._http.put(this.url+'updateProduct/'+product.id,params,{headers: headers});
     }
     deleteProduct(id: string):Observable<any> {
         let headers = new HttpHeaders().set('Content-Type','application/json');

@@ -12,7 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 export class EditComponent implements OnInit {
   public Categorys: any[]  = ["Todos"]
   public nameSearch = "";
-  public nameCategory = "";
+  public nameCategory = "Todos";
   public Products: Product[]  = []
 
   constructor(
@@ -22,6 +22,10 @@ export class EditComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProducts();
+  }
+
+  ngDoCheck() {
+    this.filterCategory(this.nameCategory)
   }
 
   filterCategory(category:string) {
@@ -43,7 +47,7 @@ export class EditComponent implements OnInit {
   getProducts() {
     this._ProductService.getProducts().subscribe(
       response => {
-        this.Products = response.product;
+        this.Products = response.result;
         this.getCategorys();
       },
       err => {
@@ -55,7 +59,7 @@ export class EditComponent implements OnInit {
     )
   }
 
-  updateStock(product: Product){
+  updateStock(product: any){
     setTimeout(()=> {
       this._ProductService.updateProduct(product).subscribe(
         response => {

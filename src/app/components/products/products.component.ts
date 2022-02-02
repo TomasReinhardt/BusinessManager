@@ -15,7 +15,7 @@ export class ProductsComponent implements OnInit {
   public Trolley: any[]  = []
   public Categorys: any[]  = ["Todos"]
   public nameSearch = "";
-  public nameCategory = "";
+  public nameCategory = "Todos";
   public Products: Product[]  = []
 
   constructor(
@@ -23,6 +23,10 @@ export class ProductsComponent implements OnInit {
     private _ProductService: ProductService, 
     private _UserService: UserService 
   ) { }
+
+  ngDoCheck() {
+    this.filterCategory(this.nameCategory)
+  }
 
   ngOnInit(): void {
     var aux = sessionStorage.getItem('trolley');
@@ -36,7 +40,7 @@ export class ProductsComponent implements OnInit {
   getProducts() {
     this._ProductService.getProducts().subscribe(
       response => {
-        this.Products = response.product;
+        this.Products = response.result;
         this.getCategorys();
       },
       err => {

@@ -1,13 +1,38 @@
 #scanner {
-  margin-top: 60px;
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-#scanner .drawingBuffer {
+#scanner #scanner-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#scanner #scanner-container video {
+  width: 100%;
+  max-width: 400px;
+}
+
+#scanner #scanner-container .drawingBuffer {
+  display: block;
   position: absolute;
-  top: 60px;
-  left: 0px;
-  width: 640px;
-  height: 480px;
+  width: 100%;
+  max-width: 200px;
   border: 3px solid green;
 }
 /*# sourceMappingURL=scanner.component.css.map */

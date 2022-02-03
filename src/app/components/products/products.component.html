@@ -1,37 +1,82 @@
 <div class="Products">
+    <section *ngIf="!scannerRun">
+        <div class="search"><input type="text" placeholder="Buscar" [(ngModel)]="nameSearch"/></div>
 
-    <div class="search"><input type="text" placeholder="Buscar" [(ngModel)]="nameSearch"/></div>
-
-    <select [(ngModel)]="nameCategory">
-        <option *ngFor="let category of Categorys" value="{{category}}">
-            {{category}}
-        </option>
-    </select>
-
-    <div class="productsList">
-        <ng-container *ngFor="let product of Products; let i=index">
-            <div class="productCard" *ngIf="product.name.toLowerCase().includes(nameSearch) && product.category.includes(nameCategory)" [ngClass]="{'noStock': !product.stock}">
-                <span class="product"> {{product.name}} <br> <b>Precio: ${{product.price}}</b> </span>
-                <span class="buttons" *ngIf="product.stock">
-                    <button (click)="removedTrolley(i)">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
-                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                            <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
-                        </svg>
-                    </button> 
-                    <input type="number" name="cant" #cant [(ngModel)]="product.cant">
-                    <button (click)="addTrolley(i)">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                        </svg>
-                    </button>
-                </span>
-            </div>
-        </ng-container>
-    </div>
+        <select [(ngModel)]="nameCategory">
+            <option *ngFor="let category of Categorys" value="{{category}}">
+                {{category}}
+            </option>
+        </select>
     
-    <div class="sale" (click)="collect()"> 
-        <button>Cobrar (${{total}})</button> 
+        <div class="productsList">
+            <ng-container *ngFor="let product of Products; let i=index">
+                <div class="productCard" *ngIf="(product.name.toLowerCase().includes(nameSearch) || product.codigo.includes(nameSearch) ) && product.category.includes(nameCategory)" [ngClass]="{'noStock': !product.stock}">
+                    <span class="product"> {{product.name}} <br> <b>Precio: ${{product.price}}</b> </span>
+                    <span class="buttons" *ngIf="product.stock">
+                        <button (click)="removedTrolley(i)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+                            </svg>
+                        </button> 
+                        <input type="number" name="cant" #cant [(ngModel)]="product.cant">
+                        <button (click)="addTrolley(i)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                            </svg>
+                        </button>
+                    </span>
+                </div>
+            </ng-container>
+        </div>
+    </section>
+    <section *ngIf="scannerRun">
+        <scanner (getCodigo)="getCodigo($event)" [scannerInit]="scannerInit"></scanner>
+        <div class="productsList">
+            <ng-container *ngFor="let product of Products; let i=index">
+                <div class="productCard" *ngIf="product.codigo == codigoBarr" [ngClass]="{'noStock': !product.stock}">
+                    <span class="product"> {{product.name}} <br> <b>Precio: ${{product.price}}</b> </span>
+                    <span class="buttons" *ngIf="product.stock">
+                        <button (click)="removedTrolley(i)" (click)="reScann()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+                            </svg>
+                        </button> 
+                        <input type="number" name="cant" #cant [(ngModel)]="product.cant">
+                        <button (click)="addTrolley(i)" (click)="reScann()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                            </svg>
+                        </button>
+                    </span>
+                    <span class="buttons" *ngIf="!product.stock">
+                        <button (click)="reScann()">                            
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+                            </svg>
+                        </button>
+                    </span>
+                </div>
+                <div class="productCard noStock" *ngIf="product.codigo != codigoBarr" [ngClass]="{'noStock': !product.stock}">
+                    <span class="buttons" *ngIf="!product.stock">
+                        <button (click)="reScann()">                            
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+                            </svg>
+                        </button>
+                    </span>
+                </div>
+            </ng-container>
+        </div>
+    </section>
+    <div class="sale" > 
+        <button *ngIf="scannerRun" (click)="scannerButton()">Buscar</button> 
+        <button *ngIf="!scannerRun" (click)="scannerButton()">Scanear</button> 
+        <button (click)="collect()">Cobrar (${{total}})</button> 
     </div>
 </div>

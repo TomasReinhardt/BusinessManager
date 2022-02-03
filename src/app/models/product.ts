@@ -5,6 +5,7 @@ export class Product {
         public price: number,
         public stock: boolean,
         public cant: number,
-        public category: string
+        public category: string,
+        public codigo: string
     ){}
 }

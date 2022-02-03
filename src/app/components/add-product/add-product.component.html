@@ -12,6 +12,10 @@
             <label for="price">Precio</label>
             <input type="number" name="price" #price [(ngModel)]="Product.price"/>
         </div>
+        <div>
+            <label for="codigo">Codigo</label>
+            <input type="number" name="codigo" #codigo [(ngModel)]="Product.codigo"/>
+        </div>
         <span id="stockDiv">
             <label for="stock">Stock</label>
             <input type="checkbox" id="stock" name="stock" #stock [(ngModel)]="Product.stock" />

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/products.service';
@@ -17,6 +17,9 @@ export class ProductsComponent implements OnInit {
   public nameSearch = "";
   public nameCategory = "Todos";
   public Products: Product[]  = []
+  public scannerRun: boolean = false;
+  public codigoBarr:string = "";
+  public scannerInit: boolean = false;
 
   constructor(
     public _router: Router,
@@ -124,10 +127,33 @@ export class ProductsComponent implements OnInit {
     }
   }
 
+  reScann() {
+    if(this.scannerRun){
+      this.scannerInit = true;
+      this.codigoBarr = "";
+      setTimeout(()=> {
+        this.scannerInit = false;
+      },500)
+    }
+  }
+
   collect(){
     if(this.Trolley.length > 0) {
       sessionStorage.setItem('trolley',  JSON.stringify(this.Trolley)); 
       this._router.navigate(['sale']);
+    }
+  }
+
+  getCodigo(event:any){
+    this.codigoBarr = event
+  }
+
+  scannerButton() {
+    if(this.scannerRun){
+      this.scannerRun = false;
+      this.codigoBarr = "";
+    }else {
+      this.scannerRun = true;
     }
   }
 }

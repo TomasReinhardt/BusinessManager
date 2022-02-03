@@ -8,108 +8,110 @@
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 60px;
-    .search {
-        width: 100%;
-        text-align: center;
-        margin: 10px 0px;
-        input {
-            width: 80%;
-            height: 50px;
-            border: 2px solid #333;
-            border-radius: 5px;
-            text-align: center;
-        }
-    }
-    select {
-        width: 80%;
-        padding: 10px;
-        text-align: center;
-        margin-bottom: 10px;
-        background-color: rgb(255, 255, 255);
-        border: none;
-        border-radius: 5px;
-        padding-left: 23px;
-    }
-    .productsList {
-        width: 100%;
+    section {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        margin-bottom: 120px;
-        .productCard {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            align-items: center;
-            width: 80%;
-            border-radius: 5px;
+        .search {
+            width: 100%;
             text-align: center;
             margin: 10px 0px;
-            background-color: rgb(122, 118, 118);
-            .product,.buttons {
-                width: 100%;
-                margin: 5px 0px;
+            input {
+                width: 80%;
+                height: 50px;
+                border: 2px solid #333;
+                border-radius: 5px;
+                text-align: center;
             }
-            .product {
-                padding: 0px 10px;
-            }
-            .buttons {
+        }
+        select {
+            width: 80%;
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 10px;
+            background-color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 5px;
+            padding-left: 23px;
+        }
+        .productsList {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 120px;
+            .productCard {
                 display: flex;
-                align-items: center;
                 justify-content: center;
-                button {
-                    height: 40px;
-                    width: 40px;
-                    margin: 0px 20px;
-                    cursor: pointer;
-                    background: transparent;
-                    border: none;
-                    svg {
-                        display: block;
+                flex-wrap: wrap;
+                align-items: center;
+                width: 80%;
+                border-radius: 5px;
+                text-align: center;
+                margin: 10px 0px;
+                background-color: rgb(122, 118, 118);
+                .product,.buttons {
+                    width: 100%;
+                    margin: 5px 0px;
+                }
+                .product {
+                    padding: 0px 10px;
+                }
+                .buttons {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    button {
+                        height: 40px;
+                        width: 40px;
+                        margin: 0px 20px;
+                        cursor: pointer;
+                        background: transparent;
+                        border: none;
+                        svg {
+                            display: block;
+                        }
                     }
+                    input {
+                        width: 50%;
+                        height: 30px;
+                        text-align: center;
+                        border-radius: 20px;
+                        border: none;
+                    }
+                    input[type=number]::-webkit-inner-spin-button, 
+                    input[type=number]::-webkit-outer-spin-button { 
+                    -webkit-appearance: none; 
+                    margin: 0; 
+                    }
+    
+                    input[type=number] { -moz-appearance:textfield; }
                 }
-                input {
-                    width: 50%;
-                    height: 30px;
-                    text-align: center;
-                    border-radius: 20px;
-                    border: none;
-                }
-                input[type=number]::-webkit-inner-spin-button, 
-                input[type=number]::-webkit-outer-spin-button { 
-                -webkit-appearance: none; 
-                margin: 0; 
-                }
-
-                input[type=number] { -moz-appearance:textfield; }
             }
-        }
-        .noStock {
-            color: black;
-            background-color: rgb(160, 97, 97);
-        }
+            .noStock {
+                color: black;
+                background-color: rgb(160, 97, 97);
+            }
+        } 
     }
     .sale {
+        position: fixed;
+        bottom: 0px;
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-evenly;
         width: 100%;
         button{
             display: block;
-            width: 90%;
+            width: 40%;
             margin: 20px 0px;
-        }
-        button {
-            position: fixed;
             cursor: pointer;
             padding: 30px 30px;
             font-size: 25px;
-            bottom: 0px;
             background-color: lightgreen;
             border: none;
             border-radius: 20px;
         }
 
     }
-    
 }

@@ -16,13 +16,24 @@
   margin-top: 60px;
 }
 
-.Products .search {
+.Products section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.Products section .search {
   width: 100%;
   text-align: center;
   margin: 10px 0px;
 }
 
-.Products .search input {
+.Products section .search input {
   width: 80%;
   height: 50px;
   border: 2px solid #333;
@@ -30,7 +41,7 @@
   text-align: center;
 }
 
-.Products select {
+.Products section select {
   width: 80%;
   padding: 10px;
   text-align: center;
@@ -41,7 +52,7 @@
   padding-left: 23px;
 }
 
-.Products .productsList {
+.Products section .productsList {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -54,7 +65,7 @@
   margin-bottom: 120px;
 }
 
-.Products .productsList .productCard {
+.Products section .productsList .productCard {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -73,16 +84,16 @@
   background-color: #7a7676;
 }
 
-.Products .productsList .productCard .product, .Products .productsList .productCard .buttons {
+.Products section .productsList .productCard .product, .Products section .productsList .productCard .buttons {
   width: 100%;
   margin: 5px 0px;
 }
 
-.Products .productsList .productCard .product {
+.Products section .productsList .productCard .product {
   padding: 0px 10px;
 }
 
-.Products .productsList .productCard .buttons {
+.Products section .productsList .productCard .buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -94,7 +105,7 @@
           justify-content: center;
 }
 
-.Products .productsList .productCard .buttons button {
+.Products section .productsList .productCard .buttons button {
   height: 40px;
   width: 40px;
   margin: 0px 20px;
@@ -103,11 +114,11 @@
   border: none;
 }
 
-.Products .productsList .productCard .buttons button svg {
+.Products section .productsList .productCard .buttons button svg {
   display: block;
 }
 
-.Products .productsList .productCard .buttons input {
+.Products section .productsList .productCard .buttons input {
   width: 50%;
   height: 30px;
   text-align: center;
@@ -115,45 +126,42 @@
   border: none;
 }
 
-.Products .productsList .productCard .buttons input[type=number]::-webkit-inner-spin-button,
-.Products .productsList .productCard .buttons input[type=number]::-webkit-outer-spin-button {
+.Products section .productsList .productCard .buttons input[type=number]::-webkit-inner-spin-button,
+.Products section .productsList .productCard .buttons input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-.Products .productsList .productCard .buttons input[type=number] {
+.Products section .productsList .productCard .buttons input[type=number] {
   -moz-appearance: textfield;
 }
 
-.Products .productsList .noStock {
+.Products section .productsList .noStock {
   color: black;
   background-color: #a06161;
 }
 
 .Products .sale {
+  position: fixed;
+  bottom: 0px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   width: 100%;
 }
 
 .Products .sale button {
   display: block;
-  width: 90%;
+  width: 40%;
   margin: 20px 0px;
-}
-
-.Products .sale button {
-  position: fixed;
   cursor: pointer;
   padding: 30px 30px;
   font-size: 25px;
-  bottom: 0px;
   background-color: lightgreen;
   border: none;
   border-radius: 20px;

@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
   providers: [ProductService,UserService]
 })
 export class AddProductComponent implements OnInit {
-  public Product: Product = {id:"",name:"",price:0,stock:false,cant:1,category:""};
+  public Product: Product = {id:"",name:"",price:0,stock:false,cant:1,category:"",codigo:""};
   public Error:string ="";
   public success:string ="";
   constructor(

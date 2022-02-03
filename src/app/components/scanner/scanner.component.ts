@@ -1,40 +1,57 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter, Input } from '@angular/core';
 import Quagga from '@ericblade/quagga2';
 import * as $ from 'jquery';
 
 @Component({
-  selector: 'app-scanner',
+  selector: 'scanner',
   templateUrl: './scanner.component.html',
   styleUrls: ['./scanner.component.css']
 })
 export class ScannerComponent implements OnInit {
-
+  public codigoBarr:string = "";
+  @Input() scannerInit: boolean = false;
+  @Output() getCodigo = new EventEmitter();
+  
   constructor() { }
 
   ngOnInit(): void {
     this.startScanner();
   }
-
+  
+  ngDoCheck() {
+    console.log('hola')
+    if (this.scannerInit){
+      this.startScanner();
+      this.scannerInit = false;
+    }
+  }
   startScanner() {
     Quagga.init({
-        inputStream: {
-            name: "Live",
-            type: "LiveStream",
-            target: '#scanner-container' 
-        },
-        decoder: {
-            readers: [
-                "code_128_reader",
-                "ean_reader",
-                "ean_8_reader",
-                "code_39_reader",
-                "code_39_vin_reader",
-                "codabar_reader",
-                "upc_reader",
-                "upc_e_reader",
-                "i2of5_reader"
-            ],
-        },
+      locate: false,
+      inputStream: {
+          name: "Live",
+          type: "LiveStream",
+          target: '#scanner-container',
+          constraints: {
+            width: 1280,
+            height: 720,
+            facingMode: "environment"
+          },
+          singleChannel: false
+      },
+      decoder: {
+          readers: [
+              // "code_128_reader",
+              "ean_reader",
+              // "ean_8_reader",
+              // "code_39_reader",
+              // "code_39_vin_reader",
+              // "codabar_reader",
+              // "upc_reader",
+              // "upc_e_reader",
+              // "i2of5_reader"
+          ],
+      },
 
     }, (err:any) => {
 
@@ -69,7 +86,6 @@ export class ScannerComponent implements OnInit {
           return
       }
 
-      console.log("Initialization finished. Ready to start");
       Quagga.start();
 
       // Establecer bandera en se está ejecutando
@@ -77,9 +93,11 @@ export class ScannerComponent implements OnInit {
     });
 
 
-    Quagga.onDetected(function (result) {
+    Quagga.onDetected( (result) => {
       if(result.codeResult.code && result.codeResult.code.length == 13){
-        console.log("Barcode detected and processed : [" + result.codeResult.code + "]");
+        this.codigoBarr = result.codeResult.code;
+        this.getCodigo.emit(this.codigoBarr);
+        this.codigoBarr = "";
         Quagga.stop();
       }
     });

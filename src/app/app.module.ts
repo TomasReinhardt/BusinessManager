@@ -15,6 +15,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 import { RegisterComponent } from './components/register/register.component';
 import { EditComponent } from './components/edit/edit.component';
 import { FiadoComponent } from './components/fiado/fiado.component';
+import { ScannerComponent } from './components/scanner/scanner.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { FiadoComponent } from './components/fiado/fiado.component';
     RegisterComponent,
     EditComponent,
     FiadoComponent,
+    ScannerComponent,
   ],
   imports: [
     BrowserModule,

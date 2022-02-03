@@ -10,6 +10,7 @@ import { SaleComponent } from "./components/sale/sale.component";
 import { EditComponent } from "./components/edit/edit.component";
 import { RegisterComponent } from "./components/register/register.component";
 import { AuthGuard } from "./auth.guard";
+import { ScannerComponent } from "./components/scanner/scanner.component";
 
 const appRoutes: Routes = [
     {path: "", component:ProductsComponent,canActivate: [AuthGuard]},
@@ -19,7 +20,8 @@ const appRoutes: Routes = [
     {path: "login", component:LoginComponent},
     {path: "addProduct", component:AddProductComponent,canActivate: [AuthGuard]},
     {path: "editProducts", component:EditComponent,canActivate: [AuthGuard]},
-    {path: "register", component:RegisterComponent,canActivate: [AuthGuard]}
+    {path: "register", component:RegisterComponent,canActivate: [AuthGuard]},
+    {path: "scanner", component:ScannerComponent,canActivate: [AuthGuard]}
 ]
 
 export const appRoutingProviders: any[] = [];

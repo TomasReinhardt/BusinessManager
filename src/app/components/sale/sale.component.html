@@ -1,4 +1,4 @@
-<div class="Sale">
+<div class="Sale" *ngIf="!loading">
     <div class="ticket">
         <div class="products">
             <span class="productAux" *ngFor="let product of Trolley; let i=index">
@@ -34,4 +34,7 @@
         <button class="volver" (click)="back()">Volver</button>
         <button (click)="end()">Terminar</button>
     </div>
+</div>
+<div class="Sale loadingAPI" *ngIf="loading">
+    <span></span>
 </div>

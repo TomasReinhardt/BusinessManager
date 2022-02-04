@@ -12,12 +12,15 @@ import { UserService } from 'src/app/services/user.service';
 export class LoginComponent implements OnInit {
   public User = {username:"",password:""}
   public ErrorUser: string = "";
+  public loading: boolean = true;
+
   constructor(
     private _UserService: UserService,
     private _router: Router
     ) { }
 
   ngOnInit(): void {
+    this.checkApi();
   }
 
   ngDoCheck(){
@@ -33,13 +36,25 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem('user', response.user)
         formLogin.reset();
         this._router.navigate(['']);
-        console.log(response)
       },
       err => {
         console.log("-------------------------");
         console.log(err.error.message);
         console.log("-------------------------");
         this.ErrorUser = err.error.message;
+      }
+    )
+  }
+
+  checkApi() {
+    this._UserService.checkApi().subscribe(
+      response => {
+        this.loading = false;
+      },
+      err => {
+        console.log("------------------------------------------------")
+        console.log(err)
+        console.log("------------------------------------------------")
       }
     )
   }

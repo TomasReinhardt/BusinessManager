@@ -1,4 +1,4 @@
-<div class="login">
+<div class="login" *ngIf="!loading">
     <div class="formLogin">
         <span class="err" *ngIf="ErrorUser"><h3>{{ErrorUser}}</h3></span>
         <form id="formLogin" #formLogin="ngForm" (ngSubmit)="checkUser(formLogin)" >
@@ -9,4 +9,8 @@
             </span>
         </form>
     </div>
+</div>
+<div class="login loadingAPI" *ngIf="loading">
+    <span>
+    </span>
 </div>

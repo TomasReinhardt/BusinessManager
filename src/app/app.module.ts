@@ -16,6 +16,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { EditComponent } from './components/edit/edit.component';
 import { FiadoComponent } from './components/fiado/fiado.component';
 import { ScannerComponent } from './components/scanner/scanner.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ScannerComponent } from './components/scanner/scanner.component';
     EditComponent,
     FiadoComponent,
     ScannerComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,

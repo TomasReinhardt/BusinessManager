@@ -1,4 +1,4 @@
-<div class="addProduct">
+<div class="addProduct" *ngIf="!loading">
     <form id="formProduct" #formProduct="ngForm" (ngSubmit)="addProduct(formProduct)" >
         <div>
             <label for="name">Nombre</label>
@@ -35,4 +35,7 @@
     <div id="success" *ngIf="success">
         <h5>{{success}}</h5>
      </div>
+</div>
+<div class="addProduct loadingAPI" *ngIf="loading">
+    <span></span>
 </div>

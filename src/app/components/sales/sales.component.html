@@ -1,4 +1,4 @@
-<div class="Sales">
+<div class="Sales" *ngIf="!loading">
     <select name="date" #date [(ngModel)]="dateActual">
         <option *ngFor="let date of Dates" value="{{date}}">{{date}}</option>
     </select>
@@ -30,4 +30,7 @@
         </div>
       
     </ng-container>
+</div>
+<div class="Sales loadingAPI" *ngIf="loading">
+    <span></span>
 </div>

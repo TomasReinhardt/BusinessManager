@@ -14,6 +14,7 @@ export class EditComponent implements OnInit {
   public nameSearch = "";
   public nameCategory = "Todos";
   public Products: Product[]  = []
+  public loading: boolean = true;
 
   constructor(
     private _ProductService: ProductService,
@@ -22,6 +23,7 @@ export class EditComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProducts();
+    this.checkApi();
   }
 
   ngDoCheck() {
@@ -72,5 +74,18 @@ export class EditComponent implements OnInit {
         }
       )
     },500)
+  }
+
+  checkApi() {
+    this._UserService.checkApi().subscribe(
+      response => {
+        this.loading = false;
+      },
+      err => {
+        console.log("------------------------------------------------")
+        console.log(err)
+        console.log("------------------------------------------------")
+      }
+    )
   }
 }

@@ -11,12 +11,15 @@ import { UserService } from 'src/app/services/user.service';
 export class RegisterComponent implements OnInit {
   public User: User = {name:"",username:"",password:""}
   public Error: string = "";
+  public loading: boolean = true;
   public success: string = "";
+
   constructor(
     private _UserService: UserService
   ) { }
 
   ngOnInit(): void {
+    this.checkApi();
   }
 
   registerUser(form:any){
@@ -43,6 +46,18 @@ export class RegisterComponent implements OnInit {
     }else {
       this.Error = "Credenciales no validas"
     }
-    
+  }
+
+  checkApi() {
+    this._UserService.checkApi().subscribe(
+      response => {
+        this.loading = false;
+      },
+      err => {
+        console.log("------------------------------------------------")
+        console.log(err)
+        console.log("------------------------------------------------")
+      }
+    )
   }
 }

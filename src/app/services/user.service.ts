@@ -50,4 +50,9 @@ export class UserService {
         }
     }
 
+    checkApi(){
+        let headers = new HttpHeaders().set('Content-Type','application/json');
+        return this._http.get(this.url+'checkapi',{headers:headers});
+    }
+
 }

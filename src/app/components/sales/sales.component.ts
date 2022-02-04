@@ -13,6 +13,8 @@ export class SalesComponent implements OnInit {
   public Sales: any = [];
   public Dates: string[] = [];
   public dateActual: string = "";
+  public loading: boolean = true;
+
   constructor(
     private _SaleService : SaleService,
     private _UserService: UserService
@@ -20,6 +22,7 @@ export class SalesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSales()
+    this.checkApi();
   }
 
   getSales() {
@@ -92,5 +95,18 @@ export class SalesComponent implements OnInit {
   expandSale(i:number){
     var id = 'productSale'+i
     $('#'+id).slideToggle();
+  }
+
+  checkApi() {
+    this._UserService.checkApi().subscribe(
+      response => {
+        this.loading = false;
+      },
+      err => {
+        console.log("------------------------------------------------")
+        console.log(err)
+        console.log("------------------------------------------------")
+      }
+    )
   }
 }

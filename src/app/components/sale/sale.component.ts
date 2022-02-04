@@ -14,6 +14,7 @@ export class SaleComponent implements OnInit {
   public total: number = 0;
   public Trolley: any[]  = [];
   public Sale = {total:0,listProducts:"",fiado:false,seller:"",buyer:""};
+  public loading: boolean = true;
 
   constructor(
     private _router: Router,
@@ -29,6 +30,7 @@ export class SaleComponent implements OnInit {
       this.Sale.seller = aux2;
       this.calcTotal();
     }
+    this.checkApi();
   }
 
   addSale() {
@@ -57,7 +59,7 @@ export class SaleComponent implements OnInit {
   }
 
   back(){
-    this._router.navigate(['']);
+    this._router.navigate(['products']);
   }
 
   end(){
@@ -69,13 +71,26 @@ export class SaleComponent implements OnInit {
     }
     this.Sale.listProducts = listProducts;
     this.addSale();
+    this._router.navigate(['']);
   }
-
 
   removedTrolley(index:any) {
     this.Trolley.splice(index,1);
     this.calcTotal();
     sessionStorage.setItem('trolley',  JSON.stringify(this.Trolley)); 
     this.calcTotal();
+  }
+
+  checkApi() {
+    this._UserService.checkApi().subscribe(
+      response => {
+        this.loading = false;
+      },
+      err => {
+        console.log("------------------------------------------------")
+        console.log(err)
+        console.log("------------------------------------------------")
+      }
+    )
   }
 }

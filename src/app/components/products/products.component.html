@@ -1,4 +1,4 @@
-<div class="Products">
+<div class="Products" *ngIf="!loading">
     <section *ngIf="!scannerRun">
         <div class="search"><input type="text" placeholder="Buscar" [(ngModel)]="nameSearch"/></div>
 
@@ -79,4 +79,7 @@
         <button *ngIf="!scannerRun" (click)="scannerButton()">Scanear</button> 
         <button (click)="collect()">Cobrar (${{total}})</button> 
     </div>
+</div>
+<div class="Products loadingAPI" *ngIf="loading">
+    <span></span>
 </div>

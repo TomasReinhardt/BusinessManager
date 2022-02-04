@@ -20,6 +20,7 @@ export class ProductsComponent implements OnInit {
   public scannerRun: boolean = false;
   public codigoBarr:string = "";
   public scannerInit: boolean = false;
+  public loading: boolean = true;
 
   constructor(
     public _router: Router,
@@ -38,6 +39,7 @@ export class ProductsComponent implements OnInit {
       this.calcTotal();
     }
     this.getProducts();
+    this.checkApi();
   }
 
   getProducts() {
@@ -149,11 +151,26 @@ export class ProductsComponent implements OnInit {
   }
 
   scannerButton() {
+    this.loading = true;
+    this.checkApi();
     if(this.scannerRun){
       this.scannerRun = false;
       this.codigoBarr = "";
     }else {
       this.scannerRun = true;
     }
+  }
+
+  checkApi() {
+    this._UserService.checkApi().subscribe(
+      response => {
+        this.loading = false;
+      },
+      err => {
+        console.log("------------------------------------------------")
+        console.log(err)
+        console.log("------------------------------------------------")
+      }
+    )
   }
 }

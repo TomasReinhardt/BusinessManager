@@ -1,4 +1,4 @@
-<div class="register">
+<div class="register" *ngIf="!loading">
     <form id="formRegister" #formRegister="ngForm" (ngSubmit)="registerUser(formRegister)" >
         <div>
             <label for="name">Nombre</label>
@@ -25,4 +25,7 @@
     <div id="success" *ngIf="success">
         <h5>{{success}}</h5>
      </div>
+</div>
+<div class="register loadingAPI" *ngIf="loading">
+    <span></span>
 </div>

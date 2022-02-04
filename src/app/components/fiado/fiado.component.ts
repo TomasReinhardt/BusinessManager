@@ -14,6 +14,7 @@ export class FiadoComponent implements OnInit {
   public Sales: any = [];
   public Dates: string[] = [];
   public dateActual: string = "";
+  public loading: boolean = true;
 
   constructor(
     private _SaleService : SaleService,
@@ -22,6 +23,7 @@ export class FiadoComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSales()
+    this.checkApi();
   }
 
   getSales() {
@@ -101,5 +103,18 @@ export class FiadoComponent implements OnInit {
   expandSale(i:number){
     var id = 'productSale'+i
     $('#'+id).slideToggle();
+  }
+
+  checkApi() {
+    this._UserService.checkApi().subscribe(
+      response => {
+        this.loading = false;
+      },
+      err => {
+        console.log("------------------------------------------------")
+        console.log(err)
+        console.log("------------------------------------------------")
+      }
+    )
   }
 }

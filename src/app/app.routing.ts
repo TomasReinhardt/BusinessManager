@@ -11,9 +11,11 @@ import { EditComponent } from "./components/edit/edit.component";
 import { RegisterComponent } from "./components/register/register.component";
 import { AuthGuard } from "./auth.guard";
 import { ScannerComponent } from "./components/scanner/scanner.component";
+import { MenuComponent } from "./components/menu/menu.component";
 
 const appRoutes: Routes = [
-    {path: "", component:ProductsComponent,canActivate: [AuthGuard]},
+    {path: "", component:MenuComponent,canActivate: [AuthGuard]},
+    {path: "products", component:ProductsComponent,canActivate: [AuthGuard]},
     {path: "sale", component:SaleComponent,canActivate: [AuthGuard]},
     {path: "sales", component:SalesComponent,canActivate: [AuthGuard]},
     {path: "fiado", component:FiadoComponent,canActivate: [AuthGuard]},

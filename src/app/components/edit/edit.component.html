@@ -1,4 +1,4 @@
-<div class="Edit">
+<div class="Edit" *ngIf="!loading">
 
   <div class="search"><input type="text" placeholder="Buscar" [(ngModel)]="nameSearch"/></div>
 
@@ -38,4 +38,7 @@
           </div>
       </ng-container>
   </div>
+</div>
+<div class="Edit loadingAPI" *ngIf="loading">
+    <span></span>
 </div>

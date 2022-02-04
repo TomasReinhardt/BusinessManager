@@ -13,12 +13,15 @@ export class AddProductComponent implements OnInit {
   public Product: Product = {id:"",name:"",price:0,stock:false,cant:1,category:"",codigo:""};
   public Error:string ="";
   public success:string ="";
+  public loading: boolean = true;
+
   constructor(
     private _ProductService : ProductService,
     private _UserService: UserService
   ) { }
 
   ngOnInit(): void {
+    this.checkApi();
   }
 
   addProduct(form:any){
@@ -31,6 +34,19 @@ export class AddProductComponent implements OnInit {
         console.log(err);
         console.log("-------------------------");
         this._UserService.checkToken(err.error.error)
+      }
+    )
+  }
+
+  checkApi() {
+    this._UserService.checkApi().subscribe(
+      response => {
+        this.loading = false;
+      },
+      err => {
+        console.log("------------------------------------------------")
+        console.log(err)
+        console.log("------------------------------------------------")
       }
     )
   }

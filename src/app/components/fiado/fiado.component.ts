@@ -37,6 +37,7 @@ export class FiadoComponent implements OnInit {
         }
         this.getDates(sales)
         this.getArraySales(sales)
+        console.log(this.Sales)
       },
       err => {
         console.log("-------------------------");
@@ -49,9 +50,9 @@ export class FiadoComponent implements OnInit {
 
   getDates(sales:any){
     for (let i = 0; i < sales.length; i++) {
-      var date = sales[i].date.slice(0,10);
-      if(!this.Dates.find(element => element == date)){
-        this.Dates.push(date)
+      var buyer = sales[i].buyer;
+      if(!this.Dates.find(element => element == buyer)){
+        this.Dates.push(buyer)
       }
     }
     this.dateActual = this.Dates[0];

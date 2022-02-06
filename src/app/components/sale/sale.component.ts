@@ -69,6 +69,9 @@ export class SaleComponent implements OnInit {
     for (let i = 0; i < this.Trolley.length; i++) {
       listProducts += this.Trolley[i].product.name+'-'+this.Trolley[i].product.price+'-'+this.Trolley[i].cant+'//'
     }
+    if(this.Sale.buyer == ""){
+      this.Sale.buyer = "--"
+    }
     this.Sale.listProducts = listProducts;
     this.addSale();
     this._router.navigate(['']);

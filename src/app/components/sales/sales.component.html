@@ -3,7 +3,7 @@
         <option *ngFor="let date of Dates" value="{{date}}">{{date}}</option>
     </select>
     <ng-container *ngFor="let sale of Sales; let i=index">
-        <div class="saleBox" *ngIf="sale.date.slice(0,10) == dateActual">
+        <div class="saleBox" *ngIf="sale.date.slice(0,10) == dateActual ||  sale.buyer == dateActual">
             <button class="buttonSale" (click)="expandSale(i)">
                 Fecha: {{sale.date | date:'dd/MM/yyyy'}} <br> Total: ${{sale.total}}
             </button>

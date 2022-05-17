@@ -118,11 +118,11 @@
 }
 
 .Products section .productsList .productCard .buttons input {
-  width: 50%;
+  width: 20%;
   height: 30px;
   text-align: center;
   border-radius: 20px;
-  border: none;
+  border: 3px solid black;
 }
 
 .Products section .productsList .productCard .buttons input[type=number]::-webkit-inner-spin-button,

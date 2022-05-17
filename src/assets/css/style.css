@@ -15,6 +15,22 @@ body {
   min-height: 100vh;
 }
 
+.back {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: transparent;
+  border: none;
+}
+
 .loadingAPI {
   display: -webkit-box;
   display: -ms-flexbox;

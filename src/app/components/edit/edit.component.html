@@ -1,43 +1,49 @@
 <div class="Edit" *ngIf="!loading">
 
-  <div class="search"><input type="text" placeholder="Buscar" [(ngModel)]="nameSearch"/></div>
+    <div class="search"><input type="text" placeholder="Buscar" [(ngModel)]="nameSearch"/></div>
 
-  <select [(ngModel)]="nameCategory">
-    <option *ngFor="let category of Categorys" value="{{category}}">
-      {{category}}
-    </option>
-  </select>
+    <select [(ngModel)]="nameCategory">
+        <option *ngFor="let category of Categorys" value="{{category}}">
+        {{category}}
+        </option>
+    </select>
 
-  <div class="productsList">
-      <ng-container *ngFor="let product of Products; let i=index">
-          <div class="productCard" *ngIf="product.name.toLowerCase().includes(nameSearch) && product.category.includes(nameCategory)" [ngClass]="{'noStock': !product.stock}">
-              <span class="product">
-                  <span class="nameProduct">{{product.name}}</span>
+    <div class="productsList">
+        <ng-container *ngFor="let product of Products; let i=index">
+            <div class="productCard" *ngIf="product.name.toLowerCase().includes(nameSearch) && product.category.includes(nameCategory)" [ngClass]="{'noStock': !product.stock}">
+                <span class="product">
+                    <span class="nameProduct">{{product.name}}</span>
 
-                  <div class="boxAux">
-                      <div class="price">
-                          <label for="price{{i}}">Precio:</label>
-                          <input type="number" name="price{{i}}" #price [(ngModel)]="product.price"/>
-                      </div>
-  
-                      <span class="stockDiv">
-                          <label for="stock{{i}}">Stock:</label>
-                          <input type="checkbox" id="stock{{i}}" name="stock" #stock [(ngModel)]="product.stock" />
-                          <label for="stock{{i}}" [ngClass]="{'noStock': !product.stock, 'siStock': product.stock}">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
-                                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
-                                </svg>
-                          </label>
-                      </span>
-                  </div>
-                  
-                  <span class="buttons" (click)="updateStock(product)">
-                      <button>Actualizar</button>
-                  </span>
-              </span>
-          </div>
-      </ng-container>
-  </div>
+                    <div class="boxAux">
+                        <div class="price">
+                            <label for="price{{i}}">Precio:</label>
+                            <input type="number" name="price{{i}}" #price [(ngModel)]="product.price"/>
+                        </div>
+    
+                        <span class="stockDiv">
+                            <label for="stock{{i}}">Stock:</label>
+                            <input type="checkbox" id="stock{{i}}" name="stock" #stock [(ngModel)]="product.stock" />
+                            <label for="stock{{i}}" [ngClass]="{'noStock': !product.stock, 'siStock': product.stock}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                                    </svg>
+                            </label>
+                        </span>
+                    </div>
+                    
+                    <span class="buttons" (click)="updateStock(product)">
+                        <button>Actualizar</button>
+                    </span>
+                </span>
+            </div>
+        </ng-container>
+    </div>
+
+    <button class="back"  [routerLink]="['/']">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="lightgreen" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+        </svg>
+    </button>
 </div>
 <div class="Edit loadingAPI" *ngIf="loading">
     <span></span>

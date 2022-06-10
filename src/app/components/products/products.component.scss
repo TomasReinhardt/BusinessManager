@@ -105,12 +105,24 @@
             width: 40%;
             margin: 20px 0px;
             cursor: pointer;
-            padding: 30px 30px;
+            padding: 10px 10px;
             font-size: 25px;
             background-color: lightgreen;
             border: none;
             border-radius: 20px;
         }
 
+    }
+}
+
+
+@media (max-width: 580px){
+    .Products {
+        .sale {
+            button {
+                padding: 10px 10px;
+                max-height: 100px;
+            }
+        }
     }
 }

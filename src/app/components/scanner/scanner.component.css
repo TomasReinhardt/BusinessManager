@@ -3,6 +3,8 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -26,6 +28,7 @@
 #scanner #scanner-container video {
   width: 100%;
   max-width: 400px;
+  max-height: 400px;
 }
 
 #scanner #scanner-container .drawingBuffer {
@@ -34,5 +37,26 @@
   width: 100%;
   max-width: 200px;
   border: 3px solid green;
+}
+
+#scanner #buttonRscan {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#scanner #buttonRscan button {
+  display: block;
+  margin: 20px 0px;
+  cursor: pointer;
+  padding: 30px 30px;
+  font-size: 25px;
+  background-color: lightgreen;
+  border: none;
+  border-radius: 20px;
 }
 /*# sourceMappingURL=scanner.component.css.map */

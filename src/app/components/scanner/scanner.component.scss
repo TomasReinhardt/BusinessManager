@@ -1,6 +1,7 @@
 #scanner {
     margin-top: 20px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     #scanner-container {
@@ -10,6 +11,7 @@
         video {
             width: 100%;
             max-width: 400px;
+            max-height: 400px;
         }
         .drawingBuffer {
             display: block;
@@ -17,6 +19,21 @@
             width: 100%;
             max-width: 200px;
             border: 3px solid green;
+        }
+    }
+    #buttonRscan {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        button {
+            display: block;
+            margin: 20px 0px;
+            cursor: pointer;
+            padding: 30px 30px;
+            font-size: 25px;
+            background-color: lightgreen;
+            border: none;
+            border-radius: 20px;
         }
     }
 }

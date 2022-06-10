@@ -88,25 +88,42 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        bottom: 0px;
+        position: fixed;
         width: 100%;
         button {
             display: block;
-            width: 90%;
-            margin: 20px 0px;
+            width: 40%;
+            max-width: 200px;
+            margin: 20px 10px;
         }
         button {
-            position: fixed;
             cursor: pointer;
-            padding: 30px 30px;
-            font-size: 25px;
             bottom: 0px;
             background-color: lightgreen;
             border: none;
             border-radius: 20px;
         }
         .volver {
-            bottom: 110px;
             background-color: lightcoral;
         }
     }
+}
+
+@media (max-width: 700px){
+    .Sale {
+        .ticket {
+            .products {
+                .productAux {
+                    flex-wrap: wrap;
+                    span {
+                        justify-content: center;
+                        width: 100%;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+
 }

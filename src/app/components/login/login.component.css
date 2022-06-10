@@ -77,4 +77,11 @@
   border: none;
   background-color: lightgreen;
 }
+
+@media (max-width: 500px) {
+  .login .formLogin form .buttonLogin input[type="submit"] {
+    width: 80%;
+    font-size: 20px;
+  }
+}
 /*# sourceMappingURL=login.component.css.map */

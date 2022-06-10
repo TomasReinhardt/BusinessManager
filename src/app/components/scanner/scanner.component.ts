@@ -15,11 +15,11 @@ export class ScannerComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    $('#buttonRscan').hide();
     this.startScanner();
   }
   
   ngDoCheck() {
-    console.log('hola')
     if (this.scannerInit){
       this.startScanner();
       this.scannerInit = false;
@@ -43,7 +43,7 @@ export class ScannerComponent implements OnInit {
           readers: [
               // "code_128_reader",
               "ean_reader",
-              // "ean_8_reader",
+              "ean_8_reader",
               // "code_39_reader",
               // "code_39_vin_reader",
               // "codabar_reader",
@@ -94,13 +94,21 @@ export class ScannerComponent implements OnInit {
 
 
     Quagga.onDetected( (result) => {
-      if(result.codeResult.code && result.codeResult.code.length == 13){
+      if(result.codeResult.code &&( result.codeResult.code.length == 13 || result.codeResult.code.length == 8)){
         this.codigoBarr = result.codeResult.code;
         this.getCodigo.emit(this.codigoBarr);
         this.codigoBarr = "";
         Quagga.stop();
+        $('#scanner-container').slideUp();
+        $('#buttonRscan').show();
       }
     });
   }
 
+  reScan():void{
+    $('#buttonRscan').hide();
+    $('#scanner-container').slideToggle();
+    this.startScanner();
+    this.scannerInit = false;
+  }
 }

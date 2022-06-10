@@ -65,6 +65,7 @@
   width: 80%;
   background-color: #7a7676;
   margin: 20px 0px;
+  border-radius: 10px;
 }
 
 .Edit .productsList .productCard .product {
@@ -196,5 +197,12 @@
   background-color: lightgreen;
   border: none;
   border-radius: 20px;
+}
+
+@media (max-width: 400px) {
+  .Edit .productsList .productCard .product .boxAux .price {
+    margin: 0px;
+    text-align: center;
+  }
 }
 /*# sourceMappingURL=edit.component.css.map */

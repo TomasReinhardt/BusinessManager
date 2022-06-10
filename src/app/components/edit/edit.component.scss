@@ -42,6 +42,7 @@
             width: 80%;
             background-color: rgb(122, 118, 118);
             margin: 20px 0px;
+            border-radius: 10px;
             .product {
                 display: flex;
                 justify-content: center;
@@ -139,4 +140,28 @@
 
     }
     
+}
+
+@media (max-width:400px) {
+    .Edit {
+        .productsList {
+    
+            .productCard {
+            
+                .product {
+                    
+                    .nameProduct {
+                        
+                    }
+                    .boxAux {
+                        
+                        .price {
+                            margin: 0px;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

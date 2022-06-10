@@ -12,9 +12,13 @@ export class SaleService {
     ){
         this.url = Global.url;
     }
-    getSales():Observable<any> {
+    getSales(date:string):Observable<any> {
         let headers = new HttpHeaders().set('Content-Type','application/json');
-        return this._http.get(this.url+'sales', {headers: headers});
+        return this._http.get(this.url+'sales/'+date, {headers: headers});
+    }
+    getDates():Observable<any> {
+        let headers = new HttpHeaders().set('Content-Type','application/json');
+        return this._http.get(this.url+'dates', {headers: headers});
     }
     addSale(sale: any):Observable<any>{
         let headers = new HttpHeaders().set('Content-Type','application/json');

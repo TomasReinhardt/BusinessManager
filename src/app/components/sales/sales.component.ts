@@ -2,34 +2,66 @@ import { Component, OnInit } from '@angular/core';
 import { SaleService } from 'src/app/services/sales.service';
 import { UserService } from 'src/app/services/user.service';
 import * as $ from 'jquery';
+import { ProductService } from 'src/app/services/products.service';
+import { Product } from 'src/app/models/product';
 
 @Component({
   selector: 'sales',
   templateUrl: './sales.component.html',
   styleUrls: ['./sales.component.css'],
-  providers: [SaleService,UserService]
+  providers: [SaleService,UserService,ProductService]
 })
 export class SalesComponent implements OnInit {
   public Sales: any = [];
   public Dates: string[] = [];
   public dateActual: string = "";
+  public dateNew: string = "";
   public loading: boolean = true;
+  public Products: Product[]  = []
 
   constructor(
     private _SaleService : SaleService,
-    private _UserService: UserService
+    private _UserService: UserService,
+    private _ProductService: ProductService
   ) { }
 
   ngOnInit(): void {
-    this.getSales()
+    this.getDates();
     this.checkApi();
+    this.getProducts();
+  }
+
+  ngDoCheck():void {
+    if(this.dateNew!=this.dateActual){
+      this.getSales();
+      this.dateNew = this.dateActual;
+    }
+  }
+
+  getDates() {
+    this._SaleService.getDates().subscribe(
+      response => {
+        let fecha = "";
+        for (let i = 0; i < response.result.length; i++) {
+          if(response.result[i].date.slice(0,10) != fecha){
+            this.Dates.push(response.result[i].date.slice(0,10));
+            fecha = response.result[i].date.slice(0,10);
+          }
+        }
+      },
+      err => {
+        console.log("-------------------------");
+        console.log(err);
+        console.log("-------------------------");
+        this._UserService.checkToken(err.error.error)
+      }
+    )
   }
 
   getSales() {
-    this._SaleService.getSales().subscribe(
+    this._SaleService.getSales(this.dateActual).subscribe(
       response => {
         var sales = response.result;
-        this.getDates(sales)
         this.getArraySales(sales)
       },
       err => {
@@ -41,24 +73,19 @@ export class SalesComponent implements OnInit {
     )
   }
 
-  getDates(sales:any){
-    for (let i = 0; i < sales.length; i++) {
-      var date = sales[i].date.slice(0,10);
-      if(!this.Dates.find(element => element == date)){
-        this.Dates.push(date)
-      }
-    }
-    this.dateActual = this.Dates[0];
-  }
+
   
   getArraySales(sales: any) {
     for (let i = 0; i < sales.length; i++) {
       var auxList = sales[i].listProducts.split('//')
       var auxProducts = [];
-
       for (let i = 0; i < auxList.length; i++) {
         if(auxList[i] != ""){
-          var aux = auxList[i].split('/');
+          var aux = auxList[i].split('-');
+          var productAux = this.Products.find(element => element.id == aux[0]);
+          if(productAux){
+            aux[0] = productAux.name;
+          }
           var aux2 = aux[0]+' -- $'+aux[1]+'x'+aux[2];
           auxProducts.push(aux2)
         }
@@ -106,6 +133,20 @@ export class SalesComponent implements OnInit {
         console.log("------------------------------------------------")
         console.log(err)
         console.log("------------------------------------------------")
+      }
+    )
+  }
+
+  getProducts() {
+    this._ProductService.getProducts().subscribe(
+      response => {
+        this.Products = response.result;
+      },
+      err => {
+        console.log("-------------------------");
+        console.log(err);
+        console.log("-------------------------");
+        this._UserService.checkToken(err.error.error)
       }
     )
   }

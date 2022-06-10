@@ -27,7 +27,7 @@ export class FiadoComponent implements OnInit {
   }
 
   getSales() {
-    this._SaleService.getSales().subscribe(
+    this._SaleService.getSales(this.dateActual).subscribe(
       response => {
         var sales: any = [];
         for (let i = 0; i < response.result.length; i++) {

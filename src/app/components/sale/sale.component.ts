@@ -67,7 +67,7 @@ export class SaleComponent implements OnInit {
     //se manda la compra a la base de datos
     var listProducts = "";
     for (let i = 0; i < this.Trolley.length; i++) {
-      listProducts += this.Trolley[i].product.name+'-'+this.Trolley[i].product.price+'-'+this.Trolley[i].cant+'//'
+      listProducts += this.Trolley[i].product.id+'-'+this.Trolley[i].product.price+'-'+this.Trolley[i].cant+'//'
     }
     if(this.Sale.buyer == ""){
       this.Sale.buyer = "--"

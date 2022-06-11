@@ -38,6 +38,7 @@
   width: 80%;
   min-height: 50px;
   margin-top: 20px;
+  margin-bottom: 80px;
 }
 
 .Sales .saleBox .buttonSale {
@@ -59,6 +60,15 @@
   padding: 10px;
 }
 
+.Sales .saleBox .deleteIcon {
+  display: block;
+  position: absolute;
+  right: 15%;
+  z-index: 9999;
+  margin-top: 38px;
+  cursor: pointer;
+}
+
 .Sales .saleBox .infoSale {
   display: none;
   width: 100%;
@@ -73,6 +83,10 @@
 
 .Sales .saleBox .infoSale h5, .Sales .saleBox .infoSale b {
   font-size: 22px;
+}
+
+.Sales .saleBox .infoSale hr {
+  border-style: dashed;
 }
 
 .Sales .saleBox .infoSale .boxPagado {
@@ -111,5 +125,31 @@
 
 .Sales .saleBox .infoSale .boxPagado .pagado .siStock {
   color: #61a069;
+}
+
+.Sales #total {
+  position: fixed;
+  width: 200px;
+  bottom: 20px;
+  text-align: center;
+  background-color: lightgreen;
+  border: none;
+  border-radius: 20px;
+}
+
+@media (max-width: 560px) {
+  .Sales .saleBox .deleteIcon {
+    margin-top: 60px;
+  }
+  .Sales .saleBox .infoSale .productsSale {
+    display: block;
+    text-align: center;
+  }
+}
+
+@media (max-width: 407px) {
+  .Sales .saleBox .deleteIcon {
+    margin-top: 10px;
+  }
 }
 /*# sourceMappingURL=sales.component.css.map */

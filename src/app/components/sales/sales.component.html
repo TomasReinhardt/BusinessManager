@@ -5,9 +5,13 @@
     <ng-container *ngFor="let sale of Sales; let i=index">
         <div class="saleBox" *ngIf="sale.date.slice(0,10) == dateActual ||  sale.buyer == dateActual">
             <button class="buttonSale" (click)="expandSale(i)">
-                Fecha: {{sale.date | date:'dd/MM/yyyy'}} <br> Total: ${{sale.total}}
+                Fecha: {{sale.date | date:'yyyy/MM/dd'}} <br> Total: ${{sale.total}}
+
             </button>
-           
+            <svg (click)="deleteSale(sale.id,i)" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-trash3 deleteIcon" viewBox="0 0 16 16">
+                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+            </svg>
+
             <div class="infoSale" id="productSale{{i}}">
                 <h5><b>Venderdor:</b> {{sale.seller}}</h5>
                 <h5><b>Comprador:</b> {{sale.buyer}}</h5>
@@ -22,14 +26,18 @@
                         </label>
                     </div>
                 </span>
-                <span *ngFor="let product of sale.listProducts">
-                    {{product}}<br>
+                <span class="productsSale" *ngFor="let product of sale.listProducts">
+                    {{product}}
+                    <hr>
                 </span>
             </div>
            
         </div>
       
     </ng-container>
+    <span id="total">
+        ${{total}}
+    </span>
     <button class="back"  [routerLink]="['/']">
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="lightgreen" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
             <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>

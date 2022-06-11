@@ -3,41 +3,50 @@ import { Sale } from 'src/app/models/sale';
 import { SaleService } from 'src/app/services/sales.service';
 import { UserService } from 'src/app/services/user.service';
 import * as $ from 'jquery';
+import { ProductService } from 'src/app/services/products.service';
+import { Product } from 'src/app/models/product';
 
 @Component({
   selector: 'app-fiado',
   templateUrl: '../sales/sales.component.html',
   styleUrls: ['../sales/sales.component.css'],
-  providers: [SaleService,UserService]
+  providers: [SaleService,UserService,ProductService]
 })
 export class FiadoComponent implements OnInit {
   public Sales: any = [];
   public Dates: string[] = [];
   public dateActual: string = "";
+  public clientNew: string = "";
   public loading: boolean = true;
+  public Products: Product[]  = []
+  public total:number = 0;
 
   constructor(
     private _SaleService : SaleService,
-    private _UserService: UserService
-  ) { }
+    private _UserService: UserService,
+    private _ProductService: ProductService
+    ) { }
 
   ngOnInit(): void {
-    this.getSales()
+    this.getDates();
     this.checkApi();
+    this.getProducts();
+  }
+
+  ngDoCheck():void {
+    if(this.clientNew!=this.dateActual){
+      this.Sales = [];
+      this.total = 0;
+      this.getSales();
+      this.clientNew = this.dateActual;
+    }
   }
 
   getSales() {
-    this._SaleService.getSales(this.dateActual).subscribe(
+    this._SaleService.getSalesClient(this.dateActual).subscribe(
       response => {
-        var sales: any = [];
-        for (let i = 0; i < response.result.length; i++) {
-          if(response.result[i].fiado == false){
-            sales.push(response.result[i])
-          }
-        }
-        this.getDates(sales)
-        this.getArraySales(sales)
-        console.log(this.Sales)
+        var sales = response.result;
+        this.getArraySales(sales);
       },
       err => {
         console.log("-------------------------");
@@ -48,14 +57,20 @@ export class FiadoComponent implements OnInit {
     )
   }
 
-  getDates(sales:any){
-    for (let i = 0; i < sales.length; i++) {
-      var buyer = sales[i].buyer;
-      if(!this.Dates.find(element => element == buyer)){
-        this.Dates.push(buyer)
+  getDates(){
+    this._SaleService.getClients().subscribe(
+      response => {
+        for (let i = 0; i < response.result.length; i++) {
+          this.Dates.push(response.result[i].buyer);
+        }
+      },
+      err => {
+        console.log("-------------------------");
+        console.log(err);
+        console.log("-------------------------");
+        this._UserService.checkToken(err.error.error)
       }
-    }
-    this.dateActual = this.Dates[0];
+    )
   }
 
   updateSale(sale: any,index:any,i:any){
@@ -81,8 +96,12 @@ export class FiadoComponent implements OnInit {
 
       for (let i = 0; i < auxList.length; i++) {
         if(auxList[i] != ""){
-          var aux = auxList[i].split('/');
-          var aux2 = aux[0]+'-- $'+aux[1]+'x'+aux[2];
+          var aux = auxList[i].split('-');
+          var productAux = this.Products.find(element => element.id == aux[0]);
+          if(productAux){
+            aux[0] = productAux.name;
+          }
+          var aux2 = aux[0]+' $'+aux[1]+'x'+aux[2];
           auxProducts.push(aux2)
         }
         
@@ -98,6 +117,8 @@ export class FiadoComponent implements OnInit {
         listProducts: auxProducts
       }
       this.Sales.push(sale)
+
+      this.total += sales[i].total;
     }
   }
 
@@ -118,4 +139,33 @@ export class FiadoComponent implements OnInit {
       }
     )
   }
+
+  getProducts() {
+    this._ProductService.getProducts().subscribe(
+      response => {
+        this.Products = response.result;
+      },
+      err => {
+        console.log("-------------------------");
+        console.log(err);
+        console.log("-------------------------");
+        this._UserService.checkToken(err.error.error)
+      }
+    )
+  }
+
+  deleteSale(saleId:string,i:number):void {
+    this._SaleService.deleteSale(saleId).subscribe(
+      response => {
+        this.Sales.splice(i,1)
+      },
+      err => {
+        console.log("-------------------------");
+        console.log(err);
+        console.log("-------------------------");
+        this._UserService.checkToken(err.error.error)
+      }
+    )
+  }
+
 }

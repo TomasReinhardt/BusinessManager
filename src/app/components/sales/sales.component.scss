@@ -26,6 +26,7 @@
         width: 80%;
         min-height: 50px;
         margin-top: 20px;
+        margin-bottom: 80px;
         .buttonSale {
             display: flex;
             align-items: center;
@@ -37,6 +38,15 @@
             border: none;
             border-radius: 10px;
             padding: 10px;
+
+        }
+        .deleteIcon {
+            display: block;
+            position: absolute;
+            right: 15%;
+            z-index: 9999;
+            margin-top: 38px;
+            cursor: pointer;
         }
 
         .infoSale {
@@ -50,6 +60,9 @@
             }
             h5,b {
                 font-size: 22px;
+            }
+            hr {
+                border-style: dashed;
             }
             .boxPagado {
                 display: flex;
@@ -78,5 +91,41 @@
                 }
             }
         }        
+    }
+
+    #total {
+        position: fixed;
+        width: 200px;
+        bottom: 20px;
+        text-align: center;
+        background-color: lightgreen;
+        border: none;
+        border-radius: 20px;
+    }
+}
+
+@media (max-width: 560px){
+    .Sales {
+        .saleBox {
+            .deleteIcon {
+                margin-top: 60px;
+            }
+            .infoSale {
+                .productsSale {
+                    display: block;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 407px){
+    .Sales {
+        .saleBox {
+            .deleteIcon {
+                margin-top: 10px;
+            }
+        }
     }
 }

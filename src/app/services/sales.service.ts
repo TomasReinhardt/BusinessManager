@@ -16,6 +16,14 @@ export class SaleService {
         let headers = new HttpHeaders().set('Content-Type','application/json');
         return this._http.get(this.url+'sales/'+date, {headers: headers});
     }
+    getSalesClient(client:string):Observable<any> {
+        let headers = new HttpHeaders().set('Content-Type','application/json');
+        return this._http.get(this.url+'salesClients/'+client, {headers: headers});
+    }
+    getClients():Observable<any> {
+        let headers = new HttpHeaders().set('Content-Type','application/json');
+        return this._http.get(this.url+'clients', {headers: headers});
+    }
     getDates():Observable<any> {
         let headers = new HttpHeaders().set('Content-Type','application/json');
         return this._http.get(this.url+'dates', {headers: headers});
@@ -31,6 +39,6 @@ export class SaleService {
     }
     deleteSale(id: string):Observable<any> {
         let headers = new HttpHeaders().set('Content-Type','application/json');
-        return this._http.delete(this.url+'/'+id, {headers: headers});
+        return this._http.delete(this.url+'deleteSale/'+id, {headers: headers});
     }
 }

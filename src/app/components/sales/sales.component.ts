@@ -17,7 +17,8 @@ export class SalesComponent implements OnInit {
   public dateActual: string = "";
   public dateNew: string = "";
   public loading: boolean = true;
-  public Products: Product[]  = []
+  public Products: Product[]  = [];
+  public total:number = 0;
 
   constructor(
     private _SaleService : SaleService,
@@ -33,6 +34,8 @@ export class SalesComponent implements OnInit {
 
   ngDoCheck():void {
     if(this.dateNew!=this.dateActual){
+      this.Sales = [];
+      this.total = 0;
       this.getSales();
       this.dateNew = this.dateActual;
     }
@@ -48,6 +51,7 @@ export class SalesComponent implements OnInit {
             fecha = response.result[i].date.slice(0,10);
           }
         }
+        this.dateActual=this.Dates[this.Dates.length-1];
       },
       err => {
         console.log("-------------------------");
@@ -79,6 +83,7 @@ export class SalesComponent implements OnInit {
     for (let i = 0; i < sales.length; i++) {
       var auxList = sales[i].listProducts.split('//')
       var auxProducts = [];
+
       for (let i = 0; i < auxList.length; i++) {
         if(auxList[i] != ""){
           var aux = auxList[i].split('-');
@@ -86,7 +91,7 @@ export class SalesComponent implements OnInit {
           if(productAux){
             aux[0] = productAux.name;
           }
-          var aux2 = aux[0]+' -- $'+aux[1]+'x'+aux[2];
+          var aux2 = aux[0]+' $'+aux[1]+'x'+aux[2];
           auxProducts.push(aux2)
         }
         
@@ -102,6 +107,8 @@ export class SalesComponent implements OnInit {
         listProducts: auxProducts
       }
       this.Sales.push(sale)
+
+      this.total += sales[i].total;
     }
   }
 
@@ -150,4 +157,19 @@ export class SalesComponent implements OnInit {
       }
     )
   }
+
+  deleteSale(saleId:string,i:number):void {
+    this._SaleService.deleteSale(saleId).subscribe(
+      response => {
+        this.Sales.splice(i,1)
+      },
+      err => {
+        console.log("-------------------------");
+        console.log(err);
+        console.log("-------------------------");
+        this._UserService.checkToken(err.error.error)
+      }
+    )
+  }
+
 }
